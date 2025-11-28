@@ -37,7 +37,6 @@
             min-height: 100vh;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             padding: 20px 0;
@@ -86,7 +85,6 @@
             margin-top: 5px;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             flex-wrap: wrap;
@@ -129,7 +127,6 @@
             transform: rotate(180deg);
         }
 
-        /* Dropdown */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -168,7 +165,6 @@
             padding-left: 30px;
         }
 
-        /* Main Content */
         main {
             max-width: 1400px;
             margin: 0 auto;
@@ -176,7 +172,6 @@
             min-height: 70vh;
         }
 
-        /* Tab Content */
         .tab-content {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -191,7 +186,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Home Tab */
         .home-hero {
             text-align: center;
             padding: 60px 0;
@@ -210,7 +204,6 @@
             margin-bottom: 50px;
         }
 
-        /* Search Box */
         .search-container {
             max-width: 800px;
             margin: 0 auto 60px;
@@ -261,7 +254,6 @@
             transform: none;
         }
 
-        /* Quick Links */
         .quick-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -310,7 +302,6 @@
             font-size: 16px;
         }
 
-        /* Section Title */
         .section-title {
             font-family: 'Nanum Myeongjo', serif;
             font-size: 36px;
@@ -327,75 +318,6 @@
             font-size: 40px;
         }
 
-        /* Content Cards */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .content-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 20px 25px;
-            color: var(--white);
-        }
-
-        .card-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .card-subtitle {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .card-body {
-            padding: 25px;
-        }
-
-        .card-item {
-            padding: 15px 0;
-            border-bottom: 1px dashed #ddd;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .card-item:last-child {
-            border-bottom: none;
-        }
-
-        .card-item-icon {
-            color: var(--secondary);
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .card-item-text {
-            font-size: 17px;
-            color: var(--text-dark);
-        }
-
-        .card-item-text strong {
-            color: var(--primary-dark);
-        }
-
-        /* Travel Sub Tabs */
         .travel-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -429,16 +351,6 @@
             border-color: var(--primary-dark);
         }
 
-        .travel-content {
-            display: none;
-        }
-
-        .travel-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        /* Loading Spinner */
         .loading {
             display: flex;
             flex-direction: column;
@@ -462,7 +374,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Results List */
         .results-list {
             background: var(--white);
             border-radius: 20px;
@@ -515,17 +426,6 @@
             color: #888;
         }
 
-        .result-link {
-            color: var(--secondary);
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        .result-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Region Select */
         .region-select-container {
             display: flex;
             gap: 15px;
@@ -550,7 +450,6 @@
             box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
         }
 
-        /* Footer */
         footer {
             background: var(--primary-dark);
             color: var(--white);
@@ -564,41 +463,15 @@
             opacity: 0.8;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .logo-text {
-                font-size: 24px;
-            }
-
-            .nav-btn {
-                padding: 10px 16px;
-                font-size: 16px;
-            }
-
-            .home-title {
-                font-size: 32px;
-            }
-
-            .search-container {
-                flex-direction: column;
-                border-radius: 20px;
-            }
-
-            .search-btn {
-                border-radius: 15px;
-                justify-content: center;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
+            .logo-text { font-size: 24px; }
+            .nav-btn { padding: 10px 16px; font-size: 16px; }
+            .home-title { font-size: 32px; }
+            .search-container { flex-direction: column; border-radius: 20px; }
+            .search-btn { border-radius: 15px; justify-content: center; }
+            .section-title { font-size: 28px; }
         }
 
-        /* Message Box */
         .message-box {
             background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
             border-left: 5px solid var(--primary);
@@ -612,17 +485,11 @@
             color: var(--text-dark);
         }
 
-        .message-box.warning {
-            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
-            border-left-color: var(--secondary);
-        }
-
         .message-box.error {
             background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
             border-left-color: #E53935;
         }
 
-        /* Badge */
         .badge {
             display: inline-block;
             padding: 5px 12px;
@@ -633,43 +500,11 @@
             margin-bottom: 8px;
         }
 
-        .badge-primary {
-            background: var(--primary-light);
-            color: var(--white);
-        }
+        .badge-blog { background: #03C75A; color: white; }
+        .badge-news { background: #E53935; color: white; }
+        .badge-local { background: #1976D2; color: white; }
+        .badge-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
 
-        .badge-secondary {
-            background: var(--secondary);
-            color: var(--white);
-        }
-
-        .badge-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .badge-blog {
-            background: #03C75A;
-            color: white;
-        }
-
-        .badge-news {
-            background: #E53935;
-            color: white;
-        }
-
-        .badge-local {
-            background: #1976D2;
-            color: white;
-        }
-
-        .badge-encyc {
-            background: #7B1FA2;
-            color: white;
-        }
-
-        /* No Results */
         .no-results {
             text-align: center;
             padding: 60px 20px;
@@ -681,7 +516,6 @@
             margin-bottom: 20px;
         }
 
-        /* API Status */
         .api-status {
             position: fixed;
             bottom: 20px;
@@ -695,15 +529,8 @@
             gap: 8px;
         }
 
-        .api-status.connected {
-            background: #E8F5E9;
-            color: var(--primary-dark);
-        }
-
-        .api-status.disconnected {
-            background: #FFEBEE;
-            color: #C62828;
-        }
+        .api-status.connected { background: #E8F5E9; color: var(--primary-dark); }
+        .api-status.disconnected { background: #FFEBEE; color: #C62828; }
 
         .status-dot {
             width: 10px;
@@ -711,14 +538,8 @@
             border-radius: 50%;
         }
 
-        .status-dot.connected {
-            background: var(--primary);
-            animation: pulse 2s infinite;
-        }
-
-        .status-dot.disconnected {
-            background: #E53935;
-        }
+        .status-dot.connected { background: var(--primary); animation: pulse 2s infinite; }
+        .status-dot.disconnected { background: #E53935; }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -757,8 +578,7 @@
                 </div>
                 <div class="nav-item">
                     <button class="nav-btn">📍 지역선택 <span class="arrow">▼</span></button>
-                    <div class="dropdown" id="regionDropdown">
-                    </div>
+                    <div class="dropdown" id="regionDropdown"></div>
                 </div>
             </nav>
         </div>
@@ -773,9 +593,7 @@
                 
                 <div class="search-container">
                     <input type="text" class="search-input" id="mainSearchInput" placeholder="궁금하신 내용을 검색해 보세요 (예: 노인 일자리, 등산 동호회, 귀촌 지원)">
-                    <button class="search-btn" id="mainSearchBtn" onclick="performMainSearch()">
-                        🔍 검색하기
-                    </button>
+                    <button class="search-btn" id="mainSearchBtn" onclick="performMainSearch()">🔍 검색하기</button>
                 </div>
             </div>
 
@@ -813,11 +631,9 @@
         <!-- 복지행정 탭 -->
         <div id="welfare" class="tab-content">
             <h2 class="section-title"><span class="icon">🏛️</span> 복지행정 정보</h2>
-            
             <div class="message-box">
-                <p>📢 시니어 여러분을 위한 다양한 복지혜택을 지역별로 확인하실 수 있습니다. 바우처, 지원금, 의료비 지원 등 놓치지 마세요!</p>
+                <p>📢 시니어 여러분을 위한 다양한 복지혜택을 지역별로 확인하실 수 있습니다.</p>
             </div>
-
             <div class="region-select-container">
                 <select class="region-select" id="welfareRegion" onchange="updateDistricts('welfare')">
                     <option value="">-- 시/도 선택 --</option>
@@ -827,18 +643,15 @@
                 </select>
                 <button class="search-btn" onclick="searchWelfare()">🔍 복지정보 검색</button>
             </div>
-
             <div id="welfareResults"></div>
         </div>
 
         <!-- 건강 탭 -->
         <div id="health" class="tab-content">
             <h2 class="section-title"><span class="icon">💪</span> 건강 정보</h2>
-            
             <div class="message-box">
-                <p>🏥 노인성 질환의 예방과 관리, 건강보조제, 민간요법 등 건강한 노후를 위한 정보를 제공합니다.</p>
+                <p>🏥 노인성 질환의 예방과 관리, 건강한 노후를 위한 정보를 제공합니다.</p>
             </div>
-
             <div class="region-select-container">
                 <select class="region-select" id="healthCategory">
                     <option value="">-- 카테고리 선택 --</option>
@@ -853,36 +666,30 @@
                 </select>
                 <button class="search-btn" onclick="searchHealth()">🔍 건강정보 검색</button>
             </div>
-
             <div id="healthResults"></div>
         </div>
 
         <!-- 전원생활 탭 -->
         <div id="rural" class="tab-content">
             <h2 class="section-title"><span class="icon">🏡</span> 전원생활 정보</h2>
-            
             <div class="message-box">
-                <p>🌾 귀농·귀촌을 꿈꾸시나요? 각 지자체의 지원정책과 전원생활에 적합한 지역 정보를 안내해 드립니다.</p>
+                <p>🌾 귀농·귀촌을 꿈꾸시나요? 각 지자체의 지원정책과 전원생활 정보를 안내해 드립니다.</p>
             </div>
-
             <div class="region-select-container">
                 <select class="region-select" id="ruralRegion">
                     <option value="">-- 시/도 선택 --</option>
                 </select>
                 <button class="search-btn" onclick="searchRural()">🔍 귀촌정보 검색</button>
             </div>
-
             <div id="ruralResults"></div>
         </div>
 
         <!-- 취미 탭 -->
         <div id="hobby" class="tab-content">
             <h2 class="section-title"><span class="icon">🎨</span> 취미활동 정보</h2>
-            
             <div class="message-box">
-                <p>🎭 다양한 취미활동으로 활기찬 노후를 보내세요! 동호회 정보와 필요한 장비 정보도 함께 제공합니다.</p>
+                <p>🎭 다양한 취미활동으로 활기찬 노후를 보내세요!</p>
             </div>
-
             <div class="region-select-container">
                 <select class="region-select" id="hobbyCategory">
                     <option value="">-- 취미 선택 --</option>
@@ -902,18 +709,15 @@
                 </select>
                 <button class="search-btn" onclick="searchHobby()">🔍 취미정보 검색</button>
             </div>
-
             <div id="hobbyResults"></div>
         </div>
 
         <!-- 여행 탭 -->
         <div id="travel" class="tab-content">
             <h2 class="section-title"><span class="icon">✈️</span> 여행 정보</h2>
-            
             <div class="message-box">
-                <p>🗺️ 아름다운 대한민국 구석구석을 여행해 보세요! 명산, 숲길, 관광지, 맛집 등 다양한 여행 정보를 제공합니다.</p>
+                <p>🗺️ 아름다운 대한민국 구석구석을 여행해 보세요!</p>
             </div>
-
             <div class="travel-tabs">
                 <button class="travel-tab-btn active" onclick="showTravelTab('mountains', this)">🏔️ 100대 명산</button>
                 <button class="travel-tab-btn" onclick="showTravelTab('forest', this)">🌲 숲길</button>
@@ -939,7 +743,6 @@
                 <button class="travel-tab-btn" onclick="showTravelTab('pension', this)">🌊 바다펜션</button>
                 <button class="travel-tab-btn" onclick="showTravelTab('autumn', this)">🍂 단풍길</button>
             </div>
-
             <div id="travelResults"></div>
         </div>
     </main>
@@ -948,7 +751,6 @@
         <p class="footer-text">© 2025 즐거운 시니어 생활 | 건강하고 행복한 노후를 응원합니다 🌿</p>
     </footer>
 
-    <!-- API 상태 표시 -->
     <div class="api-status disconnected" id="apiStatus">
         <span class="status-dot disconnected"></span>
         <span id="apiStatusText">API 연결 대기중</span>
@@ -956,16 +758,13 @@
 
     <script>
         // ============================================
-        // 설정 - API URL 적용됨!
+        // 설정 - 새 API URL 적용됨!
         // ============================================
         const CONFIG = {
-            API_URL: 'https://script.google.com/macros/s/AKfycbyMgrZYe8bYbO__Ls4zoUnN-ZkDhxQIBN7P9sRt9dJR_-55ZrhKuE6uyJDQUQynZ37z/exec',
+            API_URL: 'https://script.google.com/macros/s/AKfycbxCLxpc0xPnSUEVQmVX5UHSskZb57BsLOh0EcqtCNdp-S7sCI9jZOHSqjZAKABbKJhi/exec',
             DEBUG: true
         };
 
-        // ============================================
-        // 시도/구군 데이터
-        // ============================================
         const regions = {
             '서울특별시': ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구', '서대문구', '서초구', '성동구', '성북구', '송파구', '양천구', '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구'],
             '부산광역시': ['강서구', '금정구', '기장군', '남구', '동구', '동래구', '부산진구', '북구', '사상구', '사하구', '서구', '수영구', '연제구', '영도구', '중구', '해운대구'],
@@ -986,64 +785,33 @@
             '제주특별자치도': ['서귀포시', '제주시']
         };
 
-        // 여행 카테고리 한글 매핑
         const travelCategoryMap = {
-            'mountains': '100대명산',
-            'forest': '숲길',
-            'tourist': '관광지',
-            'food': '맛집',
-            'walking': '걷기좋은길',
-            'cherry': '벚꽃명소',
-            'snow': '설경명소',
-            'garden': '정원',
-            'history': '역사탐방',
-            'filming': '촬영지',
-            'temple': '사찰',
-            'market': '오일장',
-            'festival': '축제',
-            'recreation': '휴양림',
-            'arboretum': '수목원',
-            'botanical': '식물원',
-            'museum': '박물관',
-            'cafe': '카페',
-            'breakwater': '방파제낚시',
-            'platform': '좌대낚시',
-            'indoor': '실내낚시',
-            'pension': '바다펜션',
-            'autumn': '단풍명소'
+            'mountains': '100대명산', 'forest': '숲길', 'tourist': '관광지', 'food': '맛집',
+            'walking': '걷기좋은길', 'cherry': '벚꽃명소', 'snow': '설경명소', 'garden': '정원',
+            'history': '역사탐방', 'filming': '촬영지', 'temple': '사찰', 'market': '오일장',
+            'festival': '축제', 'recreation': '휴양림', 'arboretum': '수목원', 'botanical': '식물원',
+            'museum': '박물관', 'cafe': '카페', 'breakwater': '방파제낚시', 'platform': '좌대낚시',
+            'indoor': '실내낚시', 'pension': '바다펜션', 'autumn': '단풍명소'
         };
 
-        // 현재 여행 탭
         let currentTravelTab = 'mountains';
 
-        // ============================================
-        // 초기화
-        // ============================================
         document.addEventListener('DOMContentLoaded', function() {
             initializeRegionDropdowns();
             checkApiConnection();
-            
-            // 초기 여행 데이터 로드
             searchTravel('mountains');
         });
 
-        // ============================================
-        // API 통신 함수
-        // ============================================
         async function callApi(params) {
             const url = new URL(CONFIG.API_URL);
             Object.keys(params).forEach(key => {
                 if (params[key]) url.searchParams.append(key, params[key]);
             });
-            
             if (CONFIG.DEBUG) console.log('API 호출:', url.toString());
-            
             try {
                 const response = await fetch(url.toString());
                 const data = await response.json();
-                
                 if (CONFIG.DEBUG) console.log('API 응답:', data);
-                
                 return data;
             } catch (error) {
                 console.error('API 오류:', error);
@@ -1051,22 +819,17 @@
             }
         }
 
-        // API 연결 확인
         async function checkApiConnection() {
             const statusEl = document.getElementById('apiStatus');
             const statusText = document.getElementById('apiStatusText');
             const statusDot = statusEl.querySelector('.status-dot');
-            
             try {
                 const result = await callApi({ action: 'test' });
-                
                 if (result.success) {
                     statusEl.className = 'api-status connected';
                     statusDot.className = 'status-dot connected';
                     statusText.textContent = 'API 연결됨';
-                } else {
-                    throw new Error('Invalid response');
-                }
+                } else { throw new Error('Invalid response'); }
             } catch (error) {
                 statusEl.className = 'api-status disconnected';
                 statusDot.className = 'status-dot disconnected';
@@ -1074,16 +837,12 @@
             }
         }
 
-        // ============================================
-        // 지역 드롭다운 초기화
-        // ============================================
         function initializeRegionDropdowns() {
             const regionDropdown = document.getElementById('regionDropdown');
             const welfareRegion = document.getElementById('welfareRegion');
             const ruralRegion = document.getElementById('ruralRegion');
             const hobbyRegion = document.getElementById('hobbyRegion');
 
-            // 네비게이션 드롭다운
             for (const region of Object.keys(regions)) {
                 const item = document.createElement('div');
                 item.className = 'dropdown-item';
@@ -1092,7 +851,6 @@
                 regionDropdown.appendChild(item);
             }
 
-            // 각 탭의 시도 선택
             [welfareRegion, ruralRegion, hobbyRegion].forEach(select => {
                 if (select) {
                     for (const region of Object.keys(regions)) {
@@ -1105,15 +863,11 @@
             });
         }
 
-        // 구군 업데이트
         function updateDistricts(tabName) {
             const regionSelect = document.getElementById(tabName + 'Region');
             const districtSelect = document.getElementById(tabName + 'District');
-            
             if (!districtSelect) return;
-            
             districtSelect.innerHTML = '<option value="">-- 구/군 선택 --</option>';
-            
             if (regionSelect.value && regions[regionSelect.value]) {
                 regions[regionSelect.value].forEach(district => {
                     const option = document.createElement('option');
@@ -1124,329 +878,134 @@
             }
         }
 
-        // ============================================
-        // 탭 전환
-        // ============================================
         function showTab(tabId, btnEl) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
-
-            if (btnEl) {
-                btnEl.classList.add('active');
-            }
+            if (btnEl) btnEl.classList.add('active');
         }
 
-        // 여행 서브 탭 전환
         function showTravelTab(tabId, btnEl) {
             currentTravelTab = tabId;
-            
-            document.querySelectorAll('.travel-tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            if (btnEl) {
-                btnEl.classList.add('active');
-            }
-
+            document.querySelectorAll('.travel-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
             searchTravel(tabId);
         }
 
-        // 지역 선택
-        function selectRegion(region) {
-            alert(region + ' 지역이 선택되었습니다.');
-        }
+        function selectRegion(region) { alert(region + ' 지역이 선택되었습니다.'); }
 
-        // ============================================
-        // 검색 함수들
-        // ============================================
-        
-        // 메인 검색
         async function performMainSearch() {
             const query = document.getElementById('mainSearchInput').value;
-            if (!query.trim()) {
-                alert('검색어를 입력해 주세요.');
-                return;
-            }
-
+            if (!query.trim()) { alert('검색어를 입력해 주세요.'); return; }
             const resultsDiv = document.getElementById('mainSearchResults');
             const searchBtn = document.getElementById('mainSearchBtn');
-            
             searchBtn.disabled = true;
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>"${query}" 검색 중입니다...</p>
-                </div>
-            `;
-
+            resultsDiv.innerHTML = `<div class="loading"><div class="spinner"></div><p>"${query}" 검색 중입니다...</p></div>`;
             try {
                 const result = await callApi({ action: 'naverSearch', query: query });
-                
                 if (result.success && result.results && result.results.length > 0) {
                     resultsDiv.innerHTML = renderNaverResults(result.results, query);
-                } else {
-                    resultsDiv.innerHTML = renderNoResults(query);
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = renderError(error.message);
-            }
-            
+                } else { resultsDiv.innerHTML = renderNoResults(query); }
+            } catch (error) { resultsDiv.innerHTML = renderError(error.message); }
             searchBtn.disabled = false;
         }
 
-        // 복지 검색
         async function searchWelfare() {
             const region = document.getElementById('welfareRegion').value;
             const district = document.getElementById('welfareDistrict').value;
-            
             const resultsDiv = document.getElementById('welfareResults');
-            
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>복지정보를 검색 중입니다...</p>
-                </div>
-            `;
-
+            resultsDiv.innerHTML = `<div class="loading"><div class="spinner"></div><p>복지정보를 검색 중입니다...</p></div>`;
             try {
-                const result = await callApi({ 
-                    action: 'getWelfare', 
-                    region: region,
-                    district: district 
-                });
-                
+                const result = await callApi({ action: 'getWelfare', region: region, district: district });
                 if (result.success && result.results && result.results.length > 0) {
                     resultsDiv.innerHTML = renderNaverResults(result.results, (region || '') + ' 복지혜택');
-                } else {
-                    resultsDiv.innerHTML = renderNoResults('복지정보');
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = renderError(error.message);
-            }
+                } else { resultsDiv.innerHTML = renderNoResults('복지정보'); }
+            } catch (error) { resultsDiv.innerHTML = renderError(error.message); }
         }
 
-        // 건강 검색
         async function searchHealth() {
             const category = document.getElementById('healthCategory').value;
-            
             const resultsDiv = document.getElementById('healthResults');
-            
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>건강정보를 검색 중입니다...</p>
-                </div>
-            `;
-
+            resultsDiv.innerHTML = `<div class="loading"><div class="spinner"></div><p>건강정보를 검색 중입니다...</p></div>`;
             try {
-                const result = await callApi({ 
-                    action: 'getHealth', 
-                    category: category 
-                });
-                
+                const result = await callApi({ action: 'getHealth', category: category });
                 if (result.success && result.results && result.results.length > 0) {
                     resultsDiv.innerHTML = renderNaverResults(result.results, category || '건강정보');
-                } else {
-                    resultsDiv.innerHTML = renderNoResults('건강정보');
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = renderError(error.message);
-            }
+                } else { resultsDiv.innerHTML = renderNoResults('건강정보'); }
+            } catch (error) { resultsDiv.innerHTML = renderError(error.message); }
         }
 
-        // 전원생활 검색
         async function searchRural() {
             const region = document.getElementById('ruralRegion').value;
-            
             const resultsDiv = document.getElementById('ruralResults');
-            
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>귀촌정보를 검색 중입니다...</p>
-                </div>
-            `;
-
+            resultsDiv.innerHTML = `<div class="loading"><div class="spinner"></div><p>귀촌정보를 검색 중입니다...</p></div>`;
             try {
-                const result = await callApi({ 
-                    action: 'getRural', 
-                    region: region 
-                });
-                
+                const result = await callApi({ action: 'getRural', region: region });
                 if (result.success && result.results && result.results.length > 0) {
                     resultsDiv.innerHTML = renderNaverResults(result.results, (region || '') + ' 귀농귀촌');
-                } else {
-                    resultsDiv.innerHTML = renderNoResults('전원생활 정보');
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = renderError(error.message);
-            }
+                } else { resultsDiv.innerHTML = renderNoResults('전원생활 정보'); }
+            } catch (error) { resultsDiv.innerHTML = renderError(error.message); }
         }
 
-        // 취미 검색
         async function searchHobby() {
             const category = document.getElementById('hobbyCategory').value;
             const region = document.getElementById('hobbyRegion').value;
-            
             const resultsDiv = document.getElementById('hobbyResults');
-            
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>취미정보를 검색 중입니다...</p>
-                </div>
-            `;
-
+            resultsDiv.innerHTML = `<div class="loading"><div class="spinner"></div><p>취미정보를 검색 중입니다...</p></div>`;
             try {
-                const result = await callApi({ 
-                    action: 'getHobby', 
-                    category: category,
-                    region: region
-                });
-                
+                const result = await callApi({ action: 'getHobby', category: category, region: region });
                 if (result.success && result.results && result.results.length > 0) {
                     resultsDiv.innerHTML = renderNaverResults(result.results, (category || '취미') + ' 동호회');
-                } else {
-                    resultsDiv.innerHTML = renderNoResults('취미정보');
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = renderError(error.message);
-            }
+                } else { resultsDiv.innerHTML = renderNoResults('취미정보'); }
+            } catch (error) { resultsDiv.innerHTML = renderError(error.message); }
         }
 
-        // 여행 검색
         async function searchTravel(category) {
             const resultsDiv = document.getElementById('travelResults');
             const koreanCategory = travelCategoryMap[category] || category;
-            
-            resultsDiv.innerHTML = `
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>${koreanCategory} 정보를 검색 중입니다...</p>
-                </div>
-            `;
-
+            resultsDiv.innerHTML = `<div class="loading"><div class="spinner"></div><p>${koreanCategory} 정보를 검색 중입니다...</p></div>`;
             try {
-                const result = await callApi({ 
-                    action: 'getTravel', 
-                    category: category 
-                });
-                
+                const result = await callApi({ action: 'getTravel', category: category });
                 if (result.success && result.results && result.results.length > 0) {
-                    // 지역 검색 결과인지 일반 검색 결과인지 확인
                     if (result.results[0].address || result.results[0].roadAddress) {
                         resultsDiv.innerHTML = renderLocalResults(result.results, koreanCategory);
-                    } else {
-                        resultsDiv.innerHTML = renderNaverResults(result.results, koreanCategory);
-                    }
-                } else {
-                    resultsDiv.innerHTML = renderNoResults(koreanCategory);
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = renderError(error.message);
-            }
+                    } else { resultsDiv.innerHTML = renderNaverResults(result.results, koreanCategory); }
+                } else { resultsDiv.innerHTML = renderNoResults(koreanCategory); }
+            } catch (error) { resultsDiv.innerHTML = renderError(error.message); }
         }
 
-        // ============================================
-        // 결과 렌더링 함수들 (네이버 API용)
-        // ============================================
-        
         function renderNaverResults(results, query) {
-            let html = `
-                <div class="results-list">
-                    <h3 style="margin-bottom: 20px; color: var(--primary-dark);">
-                        🔍 "${query}" 검색 결과 (${results.length}건)
-                    </h3>
-            `;
-            
+            let html = `<div class="results-list"><h3 style="margin-bottom: 20px; color: var(--primary-dark);">🔍 "${query}" 검색 결과 (${results.length}건)</h3>`;
             results.forEach(item => {
                 const source = item.source || '';
                 let badgeClass = 'badge-primary';
                 if (source === '블로그') badgeClass = 'badge-blog';
                 else if (source === '뉴스') badgeClass = 'badge-news';
-                
-                html += `
-                    <div class="result-item">
-                        <div class="result-title">
-                            <a href="${item.link}" target="_blank">${item.title}</a>
-                        </div>
-                        <div class="result-desc">${item.description || ''}</div>
-                        <div class="result-meta">
-                            ${source ? `<span class="badge ${badgeClass}">${source}</span>` : ''}
-                            ${item.bloggername ? `<span>✍️ ${item.bloggername}</span>` : ''}
-                            ${item.postdate ? `<span>📅 ${item.postdate}</span>` : ''}
-                            ${item.pubDate ? `<span>📅 ${item.pubDate}</span>` : ''}
-                        </div>
-                    </div>
-                `;
+                html += `<div class="result-item"><div class="result-title"><a href="${item.link}" target="_blank">${item.title}</a></div><div class="result-desc">${item.description || ''}</div><div class="result-meta">${source ? `<span class="badge ${badgeClass}">${source}</span>` : ''}${item.bloggername ? `<span>✍️ ${item.bloggername}</span>` : ''}${item.postdate ? `<span>📅 ${item.postdate}</span>` : ''}${item.pubDate ? `<span>📅 ${item.pubDate}</span>` : ''}</div></div>`;
             });
-            
             html += '</div>';
             return html;
         }
 
         function renderLocalResults(results, category) {
-            let html = `
-                <div class="results-list">
-                    <h3 style="margin-bottom: 20px; color: var(--primary-dark);">
-                        📍 ${category} 검색 결과 (${results.length}건)
-                    </h3>
-            `;
-            
+            let html = `<div class="results-list"><h3 style="margin-bottom: 20px; color: var(--primary-dark);">📍 ${category} 검색 결과 (${results.length}건)</h3>`;
             results.forEach(item => {
-                html += `
-                    <div class="result-item">
-                        <div class="result-title">
-                            <a href="${item.link}" target="_blank">${item.title}</a>
-                        </div>
-                        <div class="result-meta">
-                            <span class="badge badge-local">📍 지역정보</span>
-                            ${item.category ? `<span class="badge badge-outline">${item.category}</span>` : ''}
-                        </div>
-                        <div class="result-desc" style="margin-top: 10px;">
-                            ${item.roadAddress ? `<div>🏠 ${item.roadAddress}</div>` : ''}
-                            ${item.address ? `<div>📌 ${item.address}</div>` : ''}
-                            ${item.telephone ? `<div>📞 ${item.telephone}</div>` : ''}
-                        </div>
-                    </div>
-                `;
+                html += `<div class="result-item"><div class="result-title"><a href="${item.link}" target="_blank">${item.title}</a></div><div class="result-meta"><span class="badge badge-local">📍 지역정보</span>${item.category ? `<span class="badge badge-outline">${item.category}</span>` : ''}</div><div class="result-desc" style="margin-top: 10px;">${item.roadAddress ? `<div>🏠 ${item.roadAddress}</div>` : ''}${item.address ? `<div>📌 ${item.address}</div>` : ''}${item.telephone ? `<div>📞 ${item.telephone}</div>` : ''}</div></div>`;
             });
-            
             html += '</div>';
             return html;
         }
 
         function renderNoResults(category) {
-            return `
-                <div class="no-results">
-                    <div class="no-results-icon">📭</div>
-                    <h3>"${category}" 검색 결과가 없습니다</h3>
-                    <p>다른 검색어나 조건으로 다시 시도해 주세요.</p>
-                </div>
-            `;
+            return `<div class="no-results"><div class="no-results-icon">📭</div><h3>"${category}" 검색 결과가 없습니다</h3><p>다른 검색어나 조건으로 다시 시도해 주세요.</p></div>`;
         }
 
         function renderError(message) {
-            return `
-                <div class="message-box error">
-                    <p>⚠️ 오류가 발생했습니다: ${message}</p>
-                    <p>잠시 후 다시 시도해 주세요.</p>
-                </div>
-            `;
+            return `<div class="message-box error"><p>⚠️ 오류가 발생했습니다: ${message}</p><p>잠시 후 다시 시도해 주세요.</p></div>`;
         }
 
-        // Enter 키로 검색
         document.getElementById('mainSearchInput')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performMainSearch();
-            }
+            if (e.key === 'Enter') performMainSearch();
         });
     </script>
 </body>
