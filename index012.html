@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즐거운 시니어 생활</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --primary-dark: #1B5E20;
+            --secondary: #FF8F00;
+            --secondary-light: #FFB300;
+            --accent: #E65100;
+            --bg-cream: #FFF8E7;
+            --bg-light: #F5F5DC;
+            --text-dark: #2D2D2D;
+            --text-muted: #5D5D5D;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            font-size: 18px;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(255,143,0,0.4);
+        }
+
+        .logo-text {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-subtitle {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 5px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--white);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn .arrow {
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .nav-item:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            padding: 15px 0;
+            min-width: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .dropdown-item {
+            padding: 12px 25px;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+
+        .dropdown-item:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding-left: 30px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            min-height: 70vh;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Tab */
+        .home-hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .home-title {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 48px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .home-subtitle {
+            font-size: 22px;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+            background: var(--white);
+            border-radius: 60px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 20px 30px;
+            border: none;
+            font-size: 20px;
+            outline: none;
+            background: transparent;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: var(--white);
+            border: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(230,81,0,0.4);
+        }
+
+        .search-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .quick-link-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quick-link-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+        }
+
+        .quick-link-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .quick-link-desc {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title .icon {
+            font-size: 40px;
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 20px 25px;
+            color: var(--white);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .card-item:last-child {
+            border-bottom: none;
+        }
+
+        .card-item-icon {
+            color: var(--secondary);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .card-item-text {
+            font-size: 17px;
+            color: var(--text-dark);
+        }
+
+        .card-item-text strong {
+            color: var(--primary-dark);
+        }
+
+        /* Travel Sub Tabs */
+        .travel-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .travel-tab-btn {
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text-dark);
+        }
+
+        .travel-tab-btn:hover {
+            background: var(--primary-light);
+            color: var(--white);
+        }
+
+        .travel-tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary-dark);
+        }
+
+        .travel-content {
+            display: none;
+        }
+
+        .travel-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            color: var(--text-muted);
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--bg-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Results List */
+        .results-list {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .result-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s;
+        }
+
+        .result-item:hover {
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .result-title a {
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .result-title a:hover {
+            text-decoration: underline;
+        }
+
+        .result-desc {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .result-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .result-link {
+            color: var(--secondary);
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .result-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Region Select */
+        .region-select-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .region-select {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: 2px solid var(--primary-light);
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--text-dark);
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .region-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 24px;
+            }
+
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 16px;
+            }
+
+            .home-title {
+                font-size: 32px;
+            }
+
+            .search-container {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+
+            .search-btn {
+                border-radius: 15px;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Message Box */
+        .message-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-left: 5px solid var(--primary);
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            margin-bottom: 30px;
+        }
+
+        .message-box p {
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        .message-box.warning {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border-left-color: var(--secondary);
+        }
+
+        .message-box.error {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+            border-left-color: #E53935;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-primary {
+            background: var(--primary-light);
+            color: var(--white);
+        }
+
+        .badge-secondary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .badge-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .badge-blog {
+            background: #03C75A;
+            color: white;
+        }
+
+        .badge-news {
+            background: #E53935;
+            color: white;
+        }
+
+        .badge-local {
+            background: #1976D2;
+            color: white;
+        }
+
+        .badge-encyc {
+            background: #7B1FA2;
+            color: white;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .no-results-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        /* API Status */
+        .api-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .api-status.connected {
+            background: #E8F5E9;
+            color: var(--primary-dark);
+        }
+
+        .api-status.disconnected {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .status-dot.connected {
+            background: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.disconnected {
+            background: #E53935;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">🌿</div>
+                <div>
+                    <div class="logo-text">즐거운 시니어 생활</div>
+                    <div class="logo-subtitle">건강하고 행복한 노후를 위한 종합 정보 포털</div>
+                </div>
+            </div>
+            <nav>
+                <div class="nav-item">
+                    <button class="nav-btn active" onclick="showTab('home', this)">🏠 홈</button>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-btn" onclick="showTab('welfare', this)">🏛️ 복지행정</button>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-btn" onclick="showTab('health', this)">💪 건강</button>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-btn" onclick="showTab('rural', this)">🏡 전원생활</button>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-btn" onclick="showTab('hobby', this)">🎨 취미</button>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-btn" onclick="showTab('travel', this)">✈️ 여행</button>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-btn">📍 지역선택 <span class="arrow">▼</span></button>
+                    <div class="dropdown" id="regionDropdown">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 홈 탭 -->
+        <div id="home" class="tab-content active">
+            <div class="home-hero">
+                <h1 class="home-title">🌸 즐거운 시니어 생활에 오신 것을 환영합니다</h1>
+                <p class="home-subtitle">건강, 취미, 여행, 복지 정보를 한 곳에서 만나보세요</p>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" id="mainSearchInput" placeholder="궁금하신 내용을 검색해 보세요 (예: 노인 일자리, 등산 동호회, 귀촌 지원)">
+                    <button class="search-btn" id="mainSearchBtn" onclick="performMainSearch()">
+                        🔍 검색하기
+                    </button>
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <div class="quick-link-card" onclick="showTab('welfare')">
+                    <div class="quick-link-icon">🏛️</div>
+                    <div class="quick-link-title">복지행정</div>
+                    <div class="quick-link-desc">시니어를 위한 각종 복지혜택과 지원정책을 확인하세요</div>
+                </div>
+                <div class="quick-link-card" onclick="showTab('health')">
+                    <div class="quick-link-icon">💪</div>
+                    <div class="quick-link-title">건강정보</div>
+                    <div class="quick-link-desc">건강한 노후를 위한 질병 예방과 건강관리 정보</div>
+                </div>
+                <div class="quick-link-card" onclick="showTab('hobby')">
+                    <div class="quick-link-icon">🎨</div>
+                    <div class="quick-link-title">취미활동</div>
+                    <div class="quick-link-desc">다양한 취미활동과 동호회 정보를 찾아보세요</div>
+                </div>
+                <div class="quick-link-card" onclick="showTab('travel')">
+                    <div class="quick-link-icon">✈️</div>
+                    <div class="quick-link-title">여행정보</div>
+                    <div class="quick-link-desc">전국 명소와 아름다운 여행지를 소개합니다</div>
+                </div>
+                <div class="quick-link-card" onclick="showTab('rural')">
+                    <div class="quick-link-icon">🏡</div>
+                    <div class="quick-link-title">전원생활</div>
+                    <div class="quick-link-desc">귀농·귀촌 지원정책과 전원생활 정보</div>
+                </div>
+            </div>
+
+            <div id="mainSearchResults" style="margin-top: 40px;"></div>
+        </div>
+
+        <!-- 복지행정 탭 -->
+        <div id="welfare" class="tab-content">
+            <h2 class="section-title"><span class="icon">🏛️</span> 복지행정 정보</h2>
+            
+            <div class="message-box">
+                <p>📢 시니어 여러분을 위한 다양한 복지혜택을 지역별로 확인하실 수 있습니다. 바우처, 지원금, 의료비 지원 등 놓치지 마세요!</p>
+            </div>
+
+            <div class="region-select-container">
+                <select class="region-select" id="welfareRegion" onchange="updateDistricts('welfare')">
+                    <option value="">-- 시/도 선택 --</option>
+                </select>
+                <select class="region-select" id="welfareDistrict">
+                    <option value="">-- 구/군 선택 --</option>
+                </select>
+                <button class="search-btn" onclick="searchWelfare()">🔍 복지정보 검색</button>
+            </div>
+
+            <div id="welfareResults"></div>
+        </div>
+
+        <!-- 건강 탭 -->
+        <div id="health" class="tab-content">
+            <h2 class="section-title"><span class="icon">💪</span> 건강 정보</h2>
+            
+            <div class="message-box">
+                <p>🏥 노인성 질환의 예방과 관리, 건강보조제, 민간요법 등 건강한 노후를 위한 정보를 제공합니다.</p>
+            </div>
+
+            <div class="region-select-container">
+                <select class="region-select" id="healthCategory">
+                    <option value="">-- 카테고리 선택 --</option>
+                    <option value="당뇨병">당뇨병</option>
+                    <option value="고혈압">고혈압</option>
+                    <option value="관절염">관절염</option>
+                    <option value="치매">치매 예방</option>
+                    <option value="심장질환">심장질환</option>
+                    <option value="골다공증">골다공증</option>
+                    <option value="건강보조제">건강보조제</option>
+                    <option value="민간요법">민간요법</option>
+                </select>
+                <button class="search-btn" onclick="searchHealth()">🔍 건강정보 검색</button>
+            </div>
+
+            <div id="healthResults"></div>
+        </div>
+
+        <!-- 전원생활 탭 -->
+        <div id="rural" class="tab-content">
+            <h2 class="section-title"><span class="icon">🏡</span> 전원생활 정보</h2>
+            
+            <div class="message-box">
+                <p>🌾 귀농·귀촌을 꿈꾸시나요? 각 지자체의 지원정책과 전원생활에 적합한 지역 정보를 안내해 드립니다.</p>
+            </div>
+
+            <div class="region-select-container">
+                <select class="region-select" id="ruralRegion">
+                    <option value="">-- 시/도 선택 --</option>
+                </select>
+                <button class="search-btn" onclick="searchRural()">🔍 귀촌정보 검색</button>
+            </div>
+
+            <div id="ruralResults"></div>
+        </div>
+
+        <!-- 취미 탭 -->
+        <div id="hobby" class="tab-content">
+            <h2 class="section-title"><span class="icon">🎨</span> 취미활동 정보</h2>
+            
+            <div class="message-box">
+                <p>🎭 다양한 취미활동으로 활기찬 노후를 보내세요! 동호회 정보와 필요한 장비 정보도 함께 제공합니다.</p>
+            </div>
+
+            <div class="region-select-container">
+                <select class="region-select" id="hobbyCategory">
+                    <option value="">-- 취미 선택 --</option>
+                    <option value="등산">등산</option>
+                    <option value="낚시">낚시</option>
+                    <option value="골프">골프</option>
+                    <option value="사진">사진촬영</option>
+                    <option value="서예">서예/캘리그라피</option>
+                    <option value="댄스">댄스/춤</option>
+                    <option value="악기">악기연주</option>
+                    <option value="텃밭">텃밭가꾸기</option>
+                    <option value="수영">수영/수중운동</option>
+                    <option value="바둑">바둑/장기</option>
+                </select>
+                <select class="region-select" id="hobbyRegion">
+                    <option value="">-- 지역 선택 --</option>
+                </select>
+                <button class="search-btn" onclick="searchHobby()">🔍 취미정보 검색</button>
+            </div>
+
+            <div id="hobbyResults"></div>
+        </div>
+
+        <!-- 여행 탭 -->
+        <div id="travel" class="tab-content">
+            <h2 class="section-title"><span class="icon">✈️</span> 여행 정보</h2>
+            
+            <div class="message-box">
+                <p>🗺️ 아름다운 대한민국 구석구석을 여행해 보세요! 명산, 숲길, 관광지, 맛집 등 다양한 여행 정보를 제공합니다.</p>
+            </div>
+
+            <div class="travel-tabs">
+                <button class="travel-tab-btn active" onclick="showTravelTab('mountains', this)">🏔️ 100대 명산</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('forest', this)">🌲 숲길</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('tourist', this)">🎡 관광지</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('food', this)">🍜 맛집</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('walking', this)">🚶 걷기좋은길</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('cherry', this)">🌸 벚꽃길</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('snow', this)">❄️ 설경</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('garden', this)">🌷 정원</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('history', this)">🏛️ 역사탐방</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('filming', this)">🎬 촬영지</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('temple', this)">🛕 사찰</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('market', this)">🛒 오일장</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('festival', this)">🎉 축제</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('recreation', this)">🏕️ 휴양림</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('arboretum', this)">🌳 수목원</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('botanical', this)">🌺 식물원</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('museum', this)">🏛️ 박물관</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('cafe', this)">☕ 카페</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('breakwater', this)">🎣 방파제낚시</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('platform', this)">🐟 좌대낚시</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('indoor', this)">🏠 실내낚시</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('pension', this)">🌊 바다펜션</button>
+                <button class="travel-tab-btn" onclick="showTravelTab('autumn', this)">🍂 단풍길</button>
+            </div>
+
+            <div id="travelResults"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="footer-text">© 2025 즐거운 시니어 생활 | 건강하고 행복한 노후를 응원합니다 🌿</p>
+    </footer>
+
+    <!-- API 상태 표시 -->
+    <div class="api-status disconnected" id="apiStatus">
+        <span class="status-dot disconnected"></span>
+        <span id="apiStatusText">API 연결 대기중</span>
+    </div>
+
+    <script>
+        // ============================================
+        // 설정 - API URL 적용됨!
+        // ============================================
+        const CONFIG = {
+            API_URL: 'https://script.google.com/macros/s/AKfycbyMgrZYe8bYbO__Ls4zoUnN-ZkDhxQIBN7P9sRt9dJR_-55ZrhKuE6uyJDQUQynZ37z/exec',
+            DEBUG: true
+        };
+
+        // ============================================
+        // 시도/구군 데이터
+        // ============================================
+        const regions = {
+            '서울특별시': ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구', '서대문구', '서초구', '성동구', '성북구', '송파구', '양천구', '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구'],
+            '부산광역시': ['강서구', '금정구', '기장군', '남구', '동구', '동래구', '부산진구', '북구', '사상구', '사하구', '서구', '수영구', '연제구', '영도구', '중구', '해운대구'],
+            '대구광역시': ['남구', '달서구', '달성군', '동구', '북구', '서구', '수성구', '중구'],
+            '인천광역시': ['강화군', '계양구', '미추홀구', '남동구', '동구', '부평구', '서구', '연수구', '옹진군', '중구'],
+            '광주광역시': ['광산구', '남구', '동구', '북구', '서구'],
+            '대전광역시': ['대덕구', '동구', '서구', '유성구', '중구'],
+            '울산광역시': ['남구', '동구', '북구', '울주군', '중구'],
+            '세종특별자치시': ['세종시'],
+            '경기도': ['가평군', '고양시', '과천시', '광명시', '광주시', '구리시', '군포시', '김포시', '남양주시', '동두천시', '부천시', '성남시', '수원시', '시흥시', '안산시', '안성시', '안양시', '양주시', '양평군', '여주시', '연천군', '오산시', '용인시', '의왕시', '의정부시', '이천시', '파주시', '평택시', '포천시', '하남시', '화성시'],
+            '강원도': ['강릉시', '고성군', '동해시', '삼척시', '속초시', '양구군', '양양군', '영월군', '원주시', '인제군', '정선군', '철원군', '춘천시', '태백시', '평창군', '홍천군', '화천군', '횡성군'],
+            '충청북도': ['괴산군', '단양군', '보은군', '영동군', '옥천군', '음성군', '제천시', '증평군', '진천군', '청주시', '충주시'],
+            '충청남도': ['계룡시', '공주시', '금산군', '논산시', '당진시', '보령시', '부여군', '서산시', '서천군', '아산시', '예산군', '천안시', '청양군', '태안군', '홍성군'],
+            '전라북도': ['고창군', '군산시', '김제시', '남원시', '무주군', '부안군', '순창군', '완주군', '익산시', '임실군', '장수군', '전주시', '정읍시', '진안군'],
+            '전라남도': ['강진군', '고흥군', '곡성군', '광양시', '구례군', '나주시', '담양군', '목포시', '무안군', '보성군', '순천시', '신안군', '여수시', '영광군', '영암군', '완도군', '장성군', '장흥군', '진도군', '함평군', '해남군', '화순군'],
+            '경상북도': ['경산시', '경주시', '고령군', '구미시', '군위군', '김천시', '문경시', '봉화군', '상주시', '성주군', '안동시', '영덕군', '영양군', '영주시', '영천시', '예천군', '울릉군', '울진군', '의성군', '청도군', '청송군', '칠곡군', '포항시'],
+            '경상남도': ['거제시', '거창군', '고성군', '김해시', '남해군', '밀양시', '사천시', '산청군', '양산시', '의령군', '진주시', '창녕군', '창원시', '통영시', '하동군', '함안군', '함양군', '합천군'],
+            '제주특별자치도': ['서귀포시', '제주시']
+        };
+
+        // 여행 카테고리 한글 매핑
+        const travelCategoryMap = {
+            'mountains': '100대명산',
+            'forest': '숲길',
+            'tourist': '관광지',
+            'food': '맛집',
+            'walking': '걷기좋은길',
+            'cherry': '벚꽃명소',
+            'snow': '설경명소',
+            'garden': '정원',
+            'history': '역사탐방',
+            'filming': '촬영지',
+            'temple': '사찰',
+            'market': '오일장',
+            'festival': '축제',
+            'recreation': '휴양림',
+            'arboretum': '수목원',
+            'botanical': '식물원',
+            'museum': '박물관',
+            'cafe': '카페',
+            'breakwater': '방파제낚시',
+            'platform': '좌대낚시',
+            'indoor': '실내낚시',
+            'pension': '바다펜션',
+            'autumn': '단풍명소'
+        };
+
+        // 현재 여행 탭
+        let currentTravelTab = 'mountains';
+
+        // ============================================
+        // 초기화
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeRegionDropdowns();
+            checkApiConnection();
+            
+            // 초기 여행 데이터 로드
+            searchTravel('mountains');
+        });
+
+        // ============================================
+        // API 통신 함수
+        // ============================================
+        async function callApi(params) {
+            const url = new URL(CONFIG.API_URL);
+            Object.keys(params).forEach(key => {
+                if (params[key]) url.searchParams.append(key, params[key]);
+            });
+            
+            if (CONFIG.DEBUG) console.log('API 호출:', url.toString());
+            
+            try {
+                const response = await fetch(url.toString());
+                const data = await response.json();
+                
+                if (CONFIG.DEBUG) console.log('API 응답:', data);
+                
+                return data;
+            } catch (error) {
+                console.error('API 오류:', error);
+                return { success: false, error: error.message };
+            }
+        }
+
+        // API 연결 확인
+        async function checkApiConnection() {
+            const statusEl = document.getElementById('apiStatus');
+            const statusText = document.getElementById('apiStatusText');
+            const statusDot = statusEl.querySelector('.status-dot');
+            
+            try {
+                const result = await callApi({ action: 'test' });
+                
+                if (result.success) {
+                    statusEl.className = 'api-status connected';
+                    statusDot.className = 'status-dot connected';
+                    statusText.textContent = 'API 연결됨';
+                } else {
+                    throw new Error('Invalid response');
+                }
+            } catch (error) {
+                statusEl.className = 'api-status disconnected';
+                statusDot.className = 'status-dot disconnected';
+                statusText.textContent = 'API 연결 실패';
+            }
+        }
+
+        // ============================================
+        // 지역 드롭다운 초기화
+        // ============================================
+        function initializeRegionDropdowns() {
+            const regionDropdown = document.getElementById('regionDropdown');
+            const welfareRegion = document.getElementById('welfareRegion');
+            const ruralRegion = document.getElementById('ruralRegion');
+            const hobbyRegion = document.getElementById('hobbyRegion');
+
+            // 네비게이션 드롭다운
+            for (const region of Object.keys(regions)) {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.textContent = region;
+                item.onclick = () => selectRegion(region);
+                regionDropdown.appendChild(item);
+            }
+
+            // 각 탭의 시도 선택
+            [welfareRegion, ruralRegion, hobbyRegion].forEach(select => {
+                if (select) {
+                    for (const region of Object.keys(regions)) {
+                        const option = document.createElement('option');
+                        option.value = region;
+                        option.textContent = region;
+                        select.appendChild(option);
+                    }
+                }
+            });
+        }
+
+        // 구군 업데이트
+        function updateDistricts(tabName) {
+            const regionSelect = document.getElementById(tabName + 'Region');
+            const districtSelect = document.getElementById(tabName + 'District');
+            
+            if (!districtSelect) return;
+            
+            districtSelect.innerHTML = '<option value="">-- 구/군 선택 --</option>';
+            
+            if (regionSelect.value && regions[regionSelect.value]) {
+                regions[regionSelect.value].forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            }
+        }
+
+        // ============================================
+        // 탭 전환
+        // ============================================
+        function showTab(tabId, btnEl) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+
+            if (btnEl) {
+                btnEl.classList.add('active');
+            }
+        }
+
+        // 여행 서브 탭 전환
+        function showTravelTab(tabId, btnEl) {
+            currentTravelTab = tabId;
+            
+            document.querySelectorAll('.travel-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            if (btnEl) {
+                btnEl.classList.add('active');
+            }
+
+            searchTravel(tabId);
+        }
+
+        // 지역 선택
+        function selectRegion(region) {
+            alert(region + ' 지역이 선택되었습니다.');
+        }
+
+        // ============================================
+        // 검색 함수들
+        // ============================================
+        
+        // 메인 검색
+        async function performMainSearch() {
+            const query = document.getElementById('mainSearchInput').value;
+            if (!query.trim()) {
+                alert('검색어를 입력해 주세요.');
+                return;
+            }
+
+            const resultsDiv = document.getElementById('mainSearchResults');
+            const searchBtn = document.getElementById('mainSearchBtn');
+            
+            searchBtn.disabled = true;
+            resultsDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>"${query}" 검색 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const result = await callApi({ action: 'naverSearch', query: query });
+                
+                if (result.success && result.results && result.results.length > 0) {
+                    resultsDiv.innerHTML = renderNaverResults(result.results, query);
+                } else {
+                    resultsDiv.innerHTML = renderNoResults(query);
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = renderError(error.message);
+            }
+            
+            searchBtn.disabled = false;
+        }
+
+        // 복지 검색
+        async function searchWelfare() {
+            const region = document.getElementById('welfareRegion').value;
+            const district = document.getElementById('welfareDistrict').value;
+            
+            const resultsDiv = document.getElementById('welfareResults');
+            
+            resultsDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>복지정보를 검색 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const result = await callApi({ 
+                    action: 'getWelfare', 
+                    region: region,
+                    district: district 
+                });
+                
+                if (result.success && result.results && result.results.length > 0) {
+                    resultsDiv.innerHTML = renderNaverResults(result.results, (region || '') + ' 복지혜택');
+                } else {
+                    resultsDiv.innerHTML = renderNoResults('복지정보');
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = renderError(error.message);
+            }
+        }
+
+        // 건강 검색
+        async function searchHealth() {
+            const category = document.getElementById('healthCategory').value;
+            
+            const resultsDiv = document.getElementById('healthResults');
+            
+            resultsDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>건강정보를 검색 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const result = await callApi({ 
+                    action: 'getHealth', 
+                    category: category 
+                });
+                
+                if (result.success && result.results && result.results.length > 0) {
+                    resultsDiv.innerHTML = renderNaverResults(result.results, category || '건강정보');
+                } else {
+                    resultsDiv.innerHTML = renderNoResults('건강정보');
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = renderError(error.message);
+            }
+        }
+
+        // 전원생활 검색
+        async function searchRural() {
+            const region = document.getElementById('ruralRegion').value;
+            
+            const resultsDiv = document.getElementById('ruralResults');
+            
+            resultsDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>귀촌정보를 검색 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const result = await callApi({ 
+                    action: 'getRural', 
+                    region: region 
+                });
+                
+                if (result.success && result.results && result.results.length > 0) {
+                    resultsDiv.innerHTML = renderNaverResults(result.results, (region || '') + ' 귀농귀촌');
+                } else {
+                    resultsDiv.innerHTML = renderNoResults('전원생활 정보');
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = renderError(error.message);
+            }
+        }
+
+        // 취미 검색
+        async function searchHobby() {
+            const category = document.getElementById('hobbyCategory').value;
+            const region = document.getElementById('hobbyRegion').value;
+            
+            const resultsDiv = document.getElementById('hobbyResults');
+            
+            resultsDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>취미정보를 검색 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const result = await callApi({ 
+                    action: 'getHobby', 
+                    category: category,
+                    region: region
+                });
+                
+                if (result.success && result.results && result.results.length > 0) {
+                    resultsDiv.innerHTML = renderNaverResults(result.results, (category || '취미') + ' 동호회');
+                } else {
+                    resultsDiv.innerHTML = renderNoResults('취미정보');
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = renderError(error.message);
+            }
+        }
+
+        // 여행 검색
+        async function searchTravel(category) {
+            const resultsDiv = document.getElementById('travelResults');
+            const koreanCategory = travelCategoryMap[category] || category;
+            
+            resultsDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>${koreanCategory} 정보를 검색 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const result = await callApi({ 
+                    action: 'getTravel', 
+                    category: category 
+                });
+                
+                if (result.success && result.results && result.results.length > 0) {
+                    // 지역 검색 결과인지 일반 검색 결과인지 확인
+                    if (result.results[0].address || result.results[0].roadAddress) {
+                        resultsDiv.innerHTML = renderLocalResults(result.results, koreanCategory);
+                    } else {
+                        resultsDiv.innerHTML = renderNaverResults(result.results, koreanCategory);
+                    }
+                } else {
+                    resultsDiv.innerHTML = renderNoResults(koreanCategory);
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = renderError(error.message);
+            }
+        }
+
+        // ============================================
+        // 결과 렌더링 함수들 (네이버 API용)
+        // ============================================
+        
+        function renderNaverResults(results, query) {
+            let html = `
+                <div class="results-list">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-dark);">
+                        🔍 "${query}" 검색 결과 (${results.length}건)
+                    </h3>
+            `;
+            
+            results.forEach(item => {
+                const source = item.source || '';
+                let badgeClass = 'badge-primary';
+                if (source === '블로그') badgeClass = 'badge-blog';
+                else if (source === '뉴스') badgeClass = 'badge-news';
+                
+                html += `
+                    <div class="result-item">
+                        <div class="result-title">
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                        </div>
+                        <div class="result-desc">${item.description || ''}</div>
+                        <div class="result-meta">
+                            ${source ? `<span class="badge ${badgeClass}">${source}</span>` : ''}
+                            ${item.bloggername ? `<span>✍️ ${item.bloggername}</span>` : ''}
+                            ${item.postdate ? `<span>📅 ${item.postdate}</span>` : ''}
+                            ${item.pubDate ? `<span>📅 ${item.pubDate}</span>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            return html;
+        }
+
+        function renderLocalResults(results, category) {
+            let html = `
+                <div class="results-list">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-dark);">
+                        📍 ${category} 검색 결과 (${results.length}건)
+                    </h3>
+            `;
+            
+            results.forEach(item => {
+                html += `
+                    <div class="result-item">
+                        <div class="result-title">
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                        </div>
+                        <div class="result-meta">
+                            <span class="badge badge-local">📍 지역정보</span>
+                            ${item.category ? `<span class="badge badge-outline">${item.category}</span>` : ''}
+                        </div>
+                        <div class="result-desc" style="margin-top: 10px;">
+                            ${item.roadAddress ? `<div>🏠 ${item.roadAddress}</div>` : ''}
+                            ${item.address ? `<div>📌 ${item.address}</div>` : ''}
+                            ${item.telephone ? `<div>📞 ${item.telephone}</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            return html;
+        }
+
+        function renderNoResults(category) {
+            return `
+                <div class="no-results">
+                    <div class="no-results-icon">📭</div>
+                    <h3>"${category}" 검색 결과가 없습니다</h3>
+                    <p>다른 검색어나 조건으로 다시 시도해 주세요.</p>
+                </div>
+            `;
+        }
+
+        function renderError(message) {
+            return `
+                <div class="message-box error">
+                    <p>⚠️ 오류가 발생했습니다: ${message}</p>
+                    <p>잠시 후 다시 시도해 주세요.</p>
+                </div>
+            `;
+        }
+
+        // Enter 키로 검색
+        document.getElementById('mainSearchInput')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performMainSearch();
+            }
+        });
+    </script>
+</body>
+</html>
