@@ -453,6 +453,331 @@
             text-decoration: underline;
         }
         
+        /* AI 검색 박스 */
+        .ai-search-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 15px;
+        }
+        
+        .ai-search-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        
+        .ai-search-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .ai-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .ai-link span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .ai-link.perplexity {
+            background: #20808d;
+            color: #fff;
+        }
+        
+        .ai-link.perplexity span {
+            background: #fff;
+            color: #20808d;
+        }
+        
+        .ai-link.perplexity:hover {
+            background: #1a6b76;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(32, 128, 141, 0.4);
+        }
+        
+        .ai-link.chatgpt {
+            background: #10a37f;
+            color: #fff;
+        }
+        
+        .ai-link.chatgpt span {
+            background: #fff;
+            color: #10a37f;
+        }
+        
+        .ai-link.chatgpt:hover {
+            background: #0d8a6a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 163, 127, 0.4);
+        }
+        
+        .ai-link.bing {
+            background: #0078d4;
+            color: #fff;
+        }
+        
+        .ai-link.bing span {
+            background: #fff;
+            color: #0078d4;
+        }
+        
+        .ai-link.bing:hover {
+            background: #006abc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.4);
+        }
+        
+        .ai-link.you {
+            background: #5436da;
+            color: #fff;
+        }
+        
+        .ai-link.you span {
+            background: #fff;
+            color: #5436da;
+        }
+        
+        .ai-link.you:hover {
+            background: #4429b8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(84, 54, 218, 0.4);
+        }
+        
+        .ai-search-tip {
+            margin-top: 10px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .ai-btn {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .ai-btn:hover {
+            background: #5a6fd6;
+            transform: translateY(-1px);
+        }
+        
+        .region-link-btn.ai {
+            background: #667eea;
+        }
+        
+        .region-link-btn.ai:hover {
+            background: #5a6fd6;
+        }
+        
+        /* 토스트 메시지 */
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: #fff;
+            padding: 16px 28px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            z-index: 10000;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast-message.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        /* 블로그 검색 박스 */
+        .blog-search-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .blog-search-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 12px;
+        }
+        
+        .blog-search-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .blog-link span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .blog-link.naver {
+            background: #03c75a;
+            color: #fff;
+        }
+        
+        .blog-link.naver span {
+            background: #fff;
+            color: #03c75a;
+        }
+        
+        .blog-link.naver:hover {
+            background: #02b351;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(3, 199, 90, 0.3);
+        }
+        
+        .blog-link.daum {
+            background: #ffcd00;
+            color: #000;
+        }
+        
+        .blog-link.daum span {
+            background: #000;
+            color: #ffcd00;
+        }
+        
+        .blog-link.daum:hover {
+            background: #e6b800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 205, 0, 0.3);
+        }
+        
+        .blog-link.search {
+            background: #2d5a3d;
+            color: #fff;
+        }
+        
+        .blog-link.search:hover {
+            background: #1a3a25;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
+        }
+        
+        .blog-link.map {
+            background: #fee500;
+            color: #000;
+        }
+        
+        .blog-link.map:hover {
+            background: #fdd800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(254, 229, 0, 0.3);
+        }
+        
+        /* 결과 아이템 푸터 */
+        .result-item-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .blog-btn {
+            display: inline-block;
+            background: #03c75a;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .blog-btn:hover {
+            background: #02b351;
+            transform: translateY(-1px);
+        }
+        
+        /* 지역 링크 */
+        .region-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .region-link-btn {
+            display: inline-block;
+            background: #2d5a3d;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .region-link-btn:hover {
+            background: #1a3a25;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(45, 90, 61, 0.3);
+        }
+        
+        .region-info {
+            cursor: default !important;
+        }
+        
+        .region-info:hover {
+            transform: none !important;
+        }
+        
         /* 지역 링크 버튼 */
         .region-link-btn {
             display: inline-block;
@@ -575,6 +900,42 @@
             
             .search-in-tab {
                 flex-direction: column;
+            }
+            
+            .ai-search-links {
+                flex-direction: column;
+            }
+            
+            .ai-link {
+                justify-content: center;
+            }
+            
+            .blog-search-links {
+                flex-direction: column;
+            }
+            
+            .blog-link {
+                justify-content: center;
+            }
+            
+            .region-links {
+                flex-direction: column;
+            }
+            
+            .result-item-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .toast-message {
+                left: 20px;
+                right: 20px;
+                transform: translateX(0) translateY(100px);
+                text-align: center;
+            }
+            
+            .toast-message.show {
+                transform: translateX(0) translateY(0);
             }
         }
     </style>
@@ -1584,10 +1945,22 @@
         };
 
         // ============================================
-        // 검색 결과 표시 (공통)
+        // 검색 결과 표시 (공통) + 블로그/AI 검색 링크
         // ============================================
         function displayResults(results, resultsId, query, region = '') {
             const resultsContainer = document.getElementById(resultsId);
+            const searchQuery = region ? `${query} ${region}`.replace(' - ', ' ') : query;
+            
+            // 블로그 검색 링크들
+            const naverBlogLink = `https://search.naver.com/search.naver?where=blog&query=${encodeURIComponent(searchQuery)}`;
+            const naverLink = `https://search.naver.com/search.naver?query=${encodeURIComponent(searchQuery)}`;
+            const kakaoMapLink = `https://map.kakao.com/?q=${encodeURIComponent(searchQuery)}`;
+            const daumLink = `https://search.daum.net/search?w=blog&q=${encodeURIComponent(searchQuery)}`;
+            
+            // AI 검색 링크들
+            const perplexityLink = `https://www.perplexity.ai/search?q=${encodeURIComponent(searchQuery)}`;
+            const bingChatLink = `https://www.bing.com/search?q=${encodeURIComponent(searchQuery)}&showconv=1`;
+            const youLink = `https://you.com/search?q=${encodeURIComponent(searchQuery)}`;
             
             if (results && results.length > 0) {
                 let html = `
@@ -1596,16 +1969,62 @@
                             <span class="query-label">🔍 검색어:</span> ${query}
                             ${region ? `<span style="margin-left:10px;color:#2d5a3d;font-weight:600;">📍 ${region}</span>` : ''}
                         </div>
+                        
+                        <!-- AI 검색 바로가기 -->
+                        <div class="ai-search-box">
+                            <span class="ai-search-label">🤖 AI에게 더 자세히 물어보기</span>
+                            <div class="ai-search-links">
+                                <a href="${perplexityLink}" target="_blank" class="ai-link perplexity">
+                                    <span>P</span> Perplexity AI
+                                </a>
+                                <a href="${bingChatLink}" target="_blank" class="ai-link bing">
+                                    <span>B</span> Bing Copilot
+                                </a>
+                                <a href="${youLink}" target="_blank" class="ai-link you">
+                                    <span>Y</span> You.com
+                                </a>
+                                <button onclick="copyAndOpenChatGPT('${searchQuery.replace(/'/g, "\\'")}')" class="ai-link chatgpt">
+                                    <span>G</span> ChatGPT 질문하기
+                                </button>
+                            </div>
+                            <p class="ai-search-tip">💡 ChatGPT 버튼 클릭 시 검색어가 복사됩니다. 붙여넣기(Ctrl+V)하세요!</p>
+                        </div>
+                        
+                        <!-- 블로그 검색 바로가기 -->
+                        <div class="blog-search-box">
+                            <span class="blog-search-label">📝 블로그에서 더 찾아보기</span>
+                            <div class="blog-search-links">
+                                <a href="${naverBlogLink}" target="_blank" class="blog-link naver">
+                                    <span>N</span> 네이버 블로그
+                                </a>
+                                <a href="${daumLink}" target="_blank" class="blog-link daum">
+                                    <span>D</span> 다음 블로그
+                                </a>
+                                <a href="${naverLink}" target="_blank" class="blog-link search">
+                                    🔍 통합검색
+                                </a>
+                                <a href="${kakaoMapLink}" target="_blank" class="blog-link map">
+                                    🗺️ 지도검색
+                                </a>
+                            </div>
+                        </div>
+                        
                         <div class="result-content">
                 `;
                 
                 results.forEach(item => {
+                    const itemBlogLink = `https://search.naver.com/search.naver?where=blog&query=${encodeURIComponent(item.title)}`;
+                    const itemPerplexityLink = `https://www.perplexity.ai/search?q=${encodeURIComponent(item.title + ' 정보')}`;
                     html += `
                         <div class="result-item" ${item.link ? `onclick="window.open('${item.link}', '_blank')"` : ''}>
                             <h4>${item.title}</h4>
                             <p>${item.content}</p>
-                            <span class="category-tag">${item.category}</span>
-                            ${item.link ? `<a href="${item.link}" target="_blank" class="link-btn" onclick="event.stopPropagation()">자세히 보기 →</a>` : ''}
+                            <div class="result-item-footer">
+                                <span class="category-tag">${item.category}</span>
+                                ${item.link ? `<a href="${item.link}" target="_blank" class="link-btn" onclick="event.stopPropagation()">자세히 보기 →</a>` : ''}
+                                <a href="${itemBlogLink}" target="_blank" class="blog-btn" onclick="event.stopPropagation()">📝 블로그</a>
+                                <a href="${itemPerplexityLink}" target="_blank" class="ai-btn" onclick="event.stopPropagation()">🤖 AI검색</a>
+                            </div>
                         </div>
                     `;
                 });
@@ -1613,16 +2032,16 @@
                 // 지역이 선택된 경우 추가 링크 제공
                 if (region) {
                     const sido = region.split(' ')[0];
-                    const naverLink = `https://search.naver.com/search.naver?query=${encodeURIComponent(query + ' ' + region)}`;
-                    const kakaoMapLink = `https://map.kakao.com/?q=${encodeURIComponent(query + ' ' + region)}`;
                     
                     html += `
-                        <div class="result-item" style="background:#e8f5e9;border-left-color:#4caf50;">
-                            <h4>📍 ${region} 지역 맞춤 정보</h4>
+                        <div class="result-item region-info" style="background:#e8f5e9;border-left-color:#4caf50;">
+                            <h4>📍 ${region} 지역 추가 정보</h4>
                             <p>선택하신 지역의 더 자세한 정보를 확인하세요.</p>
-                            <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;">
-                                <a href="${naverLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🔍 네이버에서 검색</a>
-                                <a href="${kakaoMapLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🗺️ 카카오맵에서 찾기</a>
+                            <div class="region-links">
+                                <a href="${perplexityLink}" target="_blank" class="region-link-btn ai" onclick="event.stopPropagation()">🤖 AI에게 질문</a>
+                                <a href="${naverBlogLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">📝 블로그 후기</a>
+                                <a href="${naverLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🔍 네이버 검색</a>
+                                <a href="${kakaoMapLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🗺️ 카카오맵</a>
                                 ${regionalLinks[sido] ? `<a href="${regionalLinks[sido]}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🏛️ ${sido} 복지포털</a>` : ''}
                             </div>
                         </div>
@@ -1637,12 +2056,86 @@
                         <div class="result-query">
                             <span class="query-label">🔍 검색어:</span> ${query}
                         </div>
+                        <div class="ai-search-box">
+                            <span class="ai-search-label">🤖 AI에게 물어보세요</span>
+                            <div class="ai-search-links">
+                                <a href="${perplexityLink}" target="_blank" class="ai-link perplexity">
+                                    <span>P</span> Perplexity AI
+                                </a>
+                                <button onclick="copyAndOpenChatGPT('${searchQuery.replace(/'/g, "\\'")}')" class="ai-link chatgpt">
+                                    <span>G</span> ChatGPT 질문하기
+                                </button>
+                            </div>
+                        </div>
+                        <div class="blog-search-box">
+                            <span class="blog-search-label">📝 블로그에서 검색해보세요</span>
+                            <div class="blog-search-links">
+                                <a href="${naverBlogLink}" target="_blank" class="blog-link naver">
+                                    <span>N</span> 네이버 블로그
+                                </a>
+                                <a href="${daumLink}" target="_blank" class="blog-link daum">
+                                    <span>D</span> 다음 블로그
+                                </a>
+                                <a href="${naverLink}" target="_blank" class="blog-link search">
+                                    🔍 통합검색
+                                </a>
+                            </div>
+                        </div>
                         <div class="result-content">
-                            <p>검색 결과가 없습니다. 다른 검색어로 시도해보세요.</p>
+                            <p>등록된 정보가 없습니다. AI나 블로그에서 검색해보세요.</p>
                         </div>
                     </div>
                 `;
             }
+        }
+        
+        // ============================================
+        // ChatGPT 복사 후 열기 함수
+        // ============================================
+        function copyAndOpenChatGPT(query) {
+            const promptText = `${query}에 대해 자세히 알려주세요. 시니어(어르신)에게 도움이 되는 정보 위주로 설명해주세요.`;
+            
+            navigator.clipboard.writeText(promptText).then(() => {
+                // 복사 성공 알림
+                showToast('✅ 검색어가 복사되었습니다! ChatGPT에서 붙여넣기(Ctrl+V) 하세요.');
+                
+                // ChatGPT 열기
+                window.open('https://chat.openai.com/', '_blank');
+            }).catch(err => {
+                // 클립보드 접근 실패 시 대체 방법
+                const textArea = document.createElement('textarea');
+                textArea.value = promptText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                showToast('✅ 검색어가 복사되었습니다! ChatGPT에서 붙여넣기(Ctrl+V) 하세요.');
+                window.open('https://chat.openai.com/', '_blank');
+            });
+        }
+        
+        // ============================================
+        // 토스트 메시지 표시
+        // ============================================
+        function showToast(message) {
+            // 기존 토스트 제거
+            const existingToast = document.querySelector('.toast-message');
+            if (existingToast) existingToast.remove();
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
         }
 
         // ============================================
