@@ -113,7 +113,7 @@
         
         .tab-content {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.3s ease;
         }
         
         .tab-content.active {
@@ -319,7 +319,8 @@
             transition: all 0.3s;
         }
         
-        .category-btn:hover {
+        .category-btn:hover,
+        .category-btn.active {
             background: #2d5a3d;
             color: #fff;
             transform: translateY(-2px);
@@ -410,6 +411,13 @@
             padding: 20px;
             margin-bottom: 12px;
             border-left: 4px solid #3d7a4d;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .result-item:hover {
+            background: #f0f7f2;
+            transform: translateX(4px);
         }
         
         .result-item h4 {
@@ -431,6 +439,37 @@
             border-radius: 12px;
             font-size: 12px;
             margin-top: 8px;
+        }
+        
+        .result-item .link-btn {
+            display: inline-block;
+            margin-left: 10px;
+            color: #2d5a3d;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .result-item .link-btn:hover {
+            text-decoration: underline;
+        }
+        
+        /* 지역 링크 버튼 */
+        .region-link-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #2d5a3d;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .region-link-btn:hover {
+            background: #1a3a25;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45,90,61,0.3);
         }
         
         /* 로딩 */
@@ -630,14 +669,14 @@
             </div>
             
             <div class="category-buttons">
-                <button class="category-btn" onclick="searchCategory('기초연금 신청방법 자격조건', 'welfareResults')">💰 기초연금</button>
-                <button class="category-btn" onclick="searchCategory('노인 바우처 종류 신청방법', 'welfareResults')">🎫 바우처</button>
-                <button class="category-btn" onclick="searchCategory('노인 돌봄 서비스 신청', 'welfareResults')">🤝 돌봄서비스</button>
-                <button class="category-btn" onclick="searchCategory('노인 일자리 사업 신청', 'welfareResults')">💼 일자리</button>
-                <button class="category-btn" onclick="searchCategory('노인 의료비 지원 혜택', 'welfareResults')">🏥 의료지원</button>
-                <button class="category-btn" onclick="searchCategory('노인 주거 지원 임대주택', 'welfareResults')">🏠 주거지원</button>
-                <button class="category-btn" onclick="searchCategory('경로우대 할인 혜택', 'welfareResults')">🎁 경로우대</button>
-                <button class="category-btn" onclick="searchCategory('노인 교육 문화 프로그램', 'welfareResults')">📚 교육문화</button>
+                <button class="category-btn" data-key="기초연금">💰 기초연금</button>
+                <button class="category-btn" data-key="바우처">🎫 바우처</button>
+                <button class="category-btn" data-key="돌봄서비스">🤝 돌봄서비스</button>
+                <button class="category-btn" data-key="일자리">💼 일자리</button>
+                <button class="category-btn" data-key="의료지원">🏥 의료지원</button>
+                <button class="category-btn" data-key="주거지원">🏠 주거지원</button>
+                <button class="category-btn" data-key="경로우대">🎁 경로우대</button>
+                <button class="category-btn" data-key="교육문화">📚 교육문화</button>
             </div>
             
             <div class="region-selector">
@@ -669,16 +708,16 @@
             </div>
             
             <div class="category-buttons">
-                <button class="category-btn" onclick="searchCategory('고혈압 증상 치료 관리방법', 'healthResults')">❤️ 고혈압</button>
-                <button class="category-btn" onclick="searchCategory('당뇨병 증상 치료 식이요법', 'healthResults')">🩸 당뇨병</button>
-                <button class="category-btn" onclick="searchCategory('관절염 증상 치료 운동법', 'healthResults')">🦴 관절염</button>
-                <button class="category-btn" onclick="searchCategory('치매 예방 초기증상 관리', 'healthResults')">🧠 치매예방</button>
-                <button class="category-btn" onclick="searchCategory('골다공증 예방 치료 운동', 'healthResults')">💪 골다공증</button>
-                <button class="category-btn" onclick="searchCategory('노인 우울증 증상 극복방법', 'healthResults')">😊 우울증</button>
-                <button class="category-btn" onclick="searchCategory('건강보조제 추천 비타민', 'healthResults')">💊 건강보조제</button>
-                <button class="category-btn" onclick="searchCategory('노인 운동법 스트레칭 체조', 'healthResults')">🧘 운동법</button>
-                <button class="category-btn" onclick="searchCategory('민간요법 자연치유 건강법', 'healthResults')">🌿 민간요법</button>
-                <button class="category-btn" onclick="searchCategory('노인 영양관리 식단 추천', 'healthResults')">🥗 영양관리</button>
+                <button class="category-btn" data-key="고혈압">❤️ 고혈압</button>
+                <button class="category-btn" data-key="당뇨병">🩸 당뇨병</button>
+                <button class="category-btn" data-key="관절염">🦴 관절염</button>
+                <button class="category-btn" data-key="치매예방">🧠 치매예방</button>
+                <button class="category-btn" data-key="골다공증">💪 골다공증</button>
+                <button class="category-btn" data-key="우울증">😊 우울증</button>
+                <button class="category-btn" data-key="건강보조제">💊 건강보조제</button>
+                <button class="category-btn" data-key="운동법">🧘 운동법</button>
+                <button class="category-btn" data-key="민간요법">🌿 민간요법</button>
+                <button class="category-btn" data-key="영양관리">🥗 영양관리</button>
             </div>
             
             <div class="search-in-tab">
@@ -701,18 +740,18 @@
             </div>
             
             <div class="category-buttons">
-                <button class="category-btn" onclick="searchCategory('시니어 등산 동호회 추천 장비', 'hobbyResults')">🥾 등산</button>
-                <button class="category-btn" onclick="searchCategory('시니어 골프 입문 레슨 장비', 'hobbyResults')">⛳ 골프</button>
-                <button class="category-btn" onclick="searchCategory('시니어 수영 강습 효과', 'hobbyResults')">🏊 수영</button>
-                <button class="category-btn" onclick="searchCategory('시니어 사진 동호회 카메라 추천', 'hobbyResults')">📷 사진</button>
-                <button class="category-btn" onclick="searchCategory('시니어 서예 배우기 도구', 'hobbyResults')">✍️ 서예</button>
-                <button class="category-btn" onclick="searchCategory('시니어 그림 미술 취미', 'hobbyResults')">🎨 그림</button>
-                <button class="category-btn" onclick="searchCategory('시니어 낚시 입문 장비 추천', 'hobbyResults')">🎣 낚시</button>
-                <button class="category-btn" onclick="searchCategory('시니어 텃밭 가꾸기 도시농업', 'hobbyResults')">🌱 텃밭가꾸기</button>
-                <button class="category-btn" onclick="searchCategory('시니어 악기 배우기 추천', 'hobbyResults')">🎸 악기연주</button>
-                <button class="category-btn" onclick="searchCategory('시니어 댄스 건강 춤 배우기', 'hobbyResults')">💃 댄스</button>
-                <button class="category-btn" onclick="searchCategory('시니어 바둑 장기 두뇌운동', 'hobbyResults')">♟️ 바둑/장기</button>
-                <button class="category-btn" onclick="searchCategory('시니어 요가 명상 건강', 'hobbyResults')">🧘 요가/명상</button>
+                <button class="category-btn" data-key="등산">🥾 등산</button>
+                <button class="category-btn" data-key="골프">⛳ 골프</button>
+                <button class="category-btn" data-key="수영">🏊 수영</button>
+                <button class="category-btn" data-key="사진">📷 사진</button>
+                <button class="category-btn" data-key="서예">✍️ 서예</button>
+                <button class="category-btn" data-key="그림">🎨 그림</button>
+                <button class="category-btn" data-key="낚시">🎣 낚시</button>
+                <button class="category-btn" data-key="텃밭">🌱 텃밭가꾸기</button>
+                <button class="category-btn" data-key="악기">🎸 악기연주</button>
+                <button class="category-btn" data-key="댄스">💃 댄스</button>
+                <button class="category-btn" data-key="바둑">♟️ 바둑/장기</button>
+                <button class="category-btn" data-key="요가">🧘 요가/명상</button>
             </div>
             
             <div class="region-selector">
@@ -744,54 +783,32 @@
             </div>
             
             <div class="travel-sub-tabs" id="travelSubTabs">
-                <!-- 자연/산/숲 -->
-                <button class="travel-sub-tab active" data-query="한국 100대 명산 추천 등산코스">🏔️ 한국 100대 명산</button>
-                <button class="travel-sub-tab" data-query="한국 아름다운 숲길 트레킹 코스">🌲 아름다운 숲길</button>
-                <button class="travel-sub-tab" data-query="자연휴양림 예약 추천 정보">🏕️ 자연 휴양림</button>
-                <button class="travel-sub-tab" data-query="전국 수목원 추천 정보">🌳 수목원</button>
-                <button class="travel-sub-tab" data-query="전국 식물원 추천 정보">🌺 식물원</button>
-                
-                <!-- 계절별 아름다운 곳 -->
-                <button class="travel-sub-tab" data-query="아름다운 꽃길 꽃구경 명소 추천">🌼 아름다운 꽃길</button>
-                <button class="travel-sub-tab" data-query="벚꽃 명소 벚꽃길 추천">🌸 벚꽃이 아름다운 길</button>
-                <button class="travel-sub-tab" data-query="단풍 명소 단풍길 추천">🍂 단풍이 아름다운 길</button>
-                <button class="travel-sub-tab" data-query="겨울 설경 명소 눈꽃 여행지 추천">❄️ 설경이 아름다운 곳</button>
-                <button class="travel-sub-tab" data-query="아름다운 정원 수목원 추천">🌷 정원이 아름다운 곳</button>
-                
-                <!-- 걷기/산책 -->
-                <button class="travel-sub-tab" data-query="걷기 좋은 길 아름다운 산책로">🚶 걷기 좋은 길</button>
-
-                  <!-- 🚗 드라이브 코스 (새로 추가) -->
-                <button class="travel-sub-tab" data-query="한국 아름다운 드라이브 코스 추천">🚗 전국 드라이브 코스</button>
-                <button class="travel-sub-tab" data-query="해안 드라이브 코스 바다 드라이브 추천">🌊 해안 드라이브</button>
-                <button class="travel-sub-tab" data-query="산악 드라이브 코스 산 드라이브 추천">⛰️ 산악 드라이브</button>
-                <button class="travel-sub-tab" data-query="벚꽃 드라이브 코스 봄 드라이브 추천">🌸 벚꽃 드라이브</button>
-                <button class="travel-sub-tab" data-query="단풍 드라이브 코스 가을 드라이브 추천">🍁 단풍 드라이브</button>
-                <button class="travel-sub-tab" data-query="야경 드라이브 코스 밤 드라이브 추천">🌃 야경 드라이브</button>
-                <button class="travel-sub-tab" data-query="호수 드라이브 코스 추천">💧 호수 드라이브</button>
-                
-                <!-- 관광/문화 -->
-                <button class="travel-sub-tab" data-query="한국 인기 관광지 명소 추천">📸 한국 100대 관광지</button>
-                <button class="travel-sub-tab" data-query="역사 문화 탐방 유적지 추천">🏛️ 역사 문화 탐방</button>
-                <button class="travel-sub-tab" data-query="영화 드라마 촬영지 세트장">🎬 영화 드라마 촬영지</button>
-                <button class="travel-sub-tab" data-query="한국 아름다운 사찰 템플스테이">🛕 아름다운 사찰</button>
-                <button class="travel-sub-tab" data-query="전국 박물관 미술관 추천">🏛️ 박물관</button>
-                
-                <!-- 시장/축제 -->
-                <button class="travel-sub-tab" data-query="전국 오일장 전통시장 일정">🏪 전국의 오일장</button>
-                <button class="travel-sub-tab" data-query="전국 축제 행사 일정 정보">🎉 전국의 축제</button>
-                
-                <!-- 음식/카페 -->
-                <button class="travel-sub-tab" data-query="한국 지역별 맛집 전통음식 추천">🍜 전국 맛집 정보</button>
-                <button class="travel-sub-tab" data-query="뷰 좋은 카페 인스타 감성카페">☕ 아름다운 카페</button>
-                
-                <!-- 낚시 -->
-                <button class="travel-sub-tab" data-query="방파제 낚시 포인트 추천">🎣 낚시 가능한 방파제</button>
-                <button class="travel-sub-tab" data-query="좌대 낚시터 추천 예약">🐟 좌대 낚시터</button>
-                <button class="travel-sub-tab" data-query="실내 낚시터 추천 정보">🏠 실내 낚시터</button>
-                
-                <!-- 숙박 -->
-                <button class="travel-sub-tab" data-query="바다 펜션 오션뷰 숙소 추천">🏖️ 바다 펜션</button>
+                <button class="travel-sub-tab active" data-key="명산">🏔️ 한국 100대 명산</button>
+                <button class="travel-sub-tab" data-key="숲길">🌲 아름다운 숲길</button>
+                <button class="travel-sub-tab" data-key="휴양림">🏕️ 자연 휴양림</button>
+                <button class="travel-sub-tab" data-key="수목원">🌳 수목원</button>
+                <button class="travel-sub-tab" data-key="식물원">🌺 식물원</button>
+                <button class="travel-sub-tab" data-key="꽃길">🌼 아름다운 꽃길</button>
+                <button class="travel-sub-tab" data-key="벚꽃">🌸 벚꽃이 아름다운 길</button>
+                <button class="travel-sub-tab" data-key="단풍">🍂 단풍이 아름다운 길</button>
+                <button class="travel-sub-tab" data-key="설경">❄️ 설경이 아름다운 곳</button>
+                <button class="travel-sub-tab" data-key="정원">🌷 정원이 아름다운 곳</button>
+                <button class="travel-sub-tab" data-key="걷기">🚶 걷기 좋은 길</button>
+                <button class="travel-sub-tab" data-key="드라이브">🚗 전국 드라이브 코스</button>
+                <button class="travel-sub-tab" data-key="해안드라이브">🌊 해안 드라이브</button>
+                <button class="travel-sub-tab" data-key="산악드라이브">⛰️ 산악 드라이브</button>
+                <button class="travel-sub-tab" data-key="야경드라이브">🌃 야경 드라이브</button>
+                <button class="travel-sub-tab" data-key="관광지">📸 한국 100대 관광지</button>
+                <button class="travel-sub-tab" data-key="역사탐방">🏛️ 역사 문화 탐방</button>
+                <button class="travel-sub-tab" data-key="촬영지">🎬 영화 드라마 촬영지</button>
+                <button class="travel-sub-tab" data-key="사찰">🛕 아름다운 사찰</button>
+                <button class="travel-sub-tab" data-key="박물관">🏛️ 박물관</button>
+                <button class="travel-sub-tab" data-key="오일장">🏪 전국의 오일장</button>
+                <button class="travel-sub-tab" data-key="축제">🎉 전국의 축제</button>
+                <button class="travel-sub-tab" data-key="맛집">🍜 전국 맛집 정보</button>
+                <button class="travel-sub-tab" data-key="카페">☕ 아름다운 카페</button>
+                <button class="travel-sub-tab" data-key="낚시포인트">🎣 낚시 가능한 방파제</button>
+                <button class="travel-sub-tab" data-key="펜션">🏖️ 바다 펜션</button>
             </div>
             
             <div class="region-selector">
@@ -823,14 +840,14 @@
             </div>
             
             <div class="category-buttons">
-                <button class="category-btn" onclick="searchCategory('귀촌 귀농 지원정책 보조금', 'ruralResults')">💰 지원정책</button>
-                <button class="category-btn" onclick="searchCategory('귀촌 추천 지역 살기좋은곳', 'ruralResults')">📍 추천지역</button>
-                <button class="category-btn" onclick="searchCategory('전원주택 짓기 비용 절차', 'ruralResults')">🏠 전원주택</button>
-                <button class="category-btn" onclick="searchCategory('귀농 작물 추천 재배법', 'ruralResults')">🌾 농사시작</button>
-                <button class="category-btn" onclick="searchCategory('시골생활 장단점 준비사항', 'ruralResults')">📋 준비사항</button>
-                <button class="category-btn" onclick="searchCategory('귀촌 성공사례 인터뷰', 'ruralResults')">⭐ 성공사례</button>
-                <button class="category-btn" onclick="searchCategory('농촌 빈집 매물 정보', 'ruralResults')">🏚️ 빈집정보</button>
-                <button class="category-btn" onclick="searchCategory('귀농귀촌 교육 프로그램', 'ruralResults')">📚 교육정보</button>
+                <button class="category-btn" data-key="지원정책">💰 지원정책</button>
+                <button class="category-btn" data-key="추천지역">📍 추천지역</button>
+                <button class="category-btn" data-key="전원주택">🏠 전원주택</button>
+                <button class="category-btn" data-key="농사시작">🌾 농사시작</button>
+                <button class="category-btn" data-key="준비사항">📋 준비사항</button>
+                <button class="category-btn" data-key="성공사례">⭐ 성공사례</button>
+                <button class="category-btn" data-key="빈집정보">🏚️ 빈집정보</button>
+                <button class="category-btn" data-key="교육정보">📚 교육정보</button>
             </div>
             
             <div class="region-selector">
@@ -861,7 +878,604 @@
     </footer>
 
     <script>
+        // ============================================
+        // 구/군 단위 상세 지역 데이터
+        // ============================================
+        const detailedRegionalData = {
+            // 경상남도
+            '경상남도-고성군': [
+                { title: '당항포 방파제', content: '고성군 회화면 당항포관광지 인근. 감성돔, 볼락, 농어 포인트. 주차 편리.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '삼산면 방파제', content: '고성군 삼산면. 볼락, 우럭, 노래미 낚시터. 야간 낚시 인기.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '거류면 신용리 방파제', content: '고성군 거류면 신용리. 감성돔, 볼락 포인트. 가족 낚시 적합.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '동해면 내산리 방파제', content: '고성군 동해면. 우럭, 노래미, 볼락 낚시. 수심 깊어 대물 가능.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '하일면 춘암리 방파제', content: '고성군 하일면. 감성돔, 농어 시즌 인기. 일출 명소.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '당항만 일대', content: '고성군 당항만. 선상낚시, 갯바위 낚시 모두 가능. 감성돔 명소.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '상족암 군립공원', content: '고성군 하이면. 공룡발자국 화석, 해안절경. 트레킹 코스.', category: '여행', keywords: ['관광지', '여행', '명소'] },
+                { title: '당항포관광지', content: '이순신 장군 승전지. 당항포해전 기념관, 공룡엑스포 개최지.', category: '여행', keywords: ['관광지', '역사탐방', '여행'] },
+                { title: '고성 공룡박물관', content: '경남고성공룡세계엑스포 주회장. 공룡화석, 체험관.', category: '여행', keywords: ['박물관', '여행', '관광지'] }
+            ],
+            '경상남도-통영시': [
+                { title: '강구안 방파제', content: '통영시 중앙동. 도심 접근성 좋음. 볼락, 우럭, 학공치.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '산양읍 연화도 방파제', content: '통영시 산양읍. 감성돔, 참돔 대물 포인트. 배편 이용.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '욕지도 방파제', content: '통영시 욕지면. 감성돔 명소. 배편 1시간 소요.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '통영 케이블카', content: '미륵산 전망대. 한려수도 조망. 왕복 약 15분.', category: '여행', keywords: ['관광지', '여행', '드라이브'] },
+                { title: '동피랑 벽화마을', content: '통영 중앙시장 인근. 알록달록 벽화, 바다 조망.', category: '여행', keywords: ['관광지', '여행', '걷기'] }
+            ],
+            '경상남도-거제시': [
+                { title: '장승포 방파제', content: '거제시 장승포동. 접근 쉽고 주차 편리. 볼락, 우럭.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '지세포 방파제', content: '거제시 일운면. 감성돔, 볼락 명소. 야간 낚시 인기.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '외도 보타니아', content: '해상 식물공원. 유람선 이용. 해금강 관광 연계.', category: '여행', keywords: ['관광지', '여행', '정원'] },
+                { title: '바람의 언덕', content: '거제 남부. 풍차, 바다 조망. 드라마 촬영지.', category: '여행', keywords: ['관광지', '여행', '드라이브'] }
+            ],
+            '경상남도-남해군': [
+                { title: '미조항 방파제', content: '남해군 미조면. 감성돔, 볼락, 농어. 남해 대표 낚시터.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '지족항 방파제', content: '남해군 삼동면. 우럭, 노래미. 죽방렴 인근.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '독일마을', content: '남해군 삼동면. 파독 광부 정착촌. 바다 조망 카페.', category: '여행', keywords: ['관광지', '여행', '카페'] },
+                { title: '다랭이마을', content: '남해군 남면. 계단식 논. 일출·일몰 명소.', category: '여행', keywords: ['관광지', '여행', '걷기'] }
+            ],
+            // 강원도
+            '강원특별자치도-강릉시': [
+                { title: '주문진항 방파제', content: '강릉시 주문진읍. 동해안 대표 방파제. 가자미, 고등어, 오징어.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '안목항 방파제', content: '강릉시 송정동. 커피거리 인근. 가자미, 우럭.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '사천항 방파제', content: '강릉시 사천면. 한적한 분위기. 볼락, 우럭 포인트.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '경포대·경포호', content: '강릉 대표 명소. 경포해변, 오죽헌 연계 관광.', category: '여행', keywords: ['관광지', '여행', '벚꽃'] },
+                { title: '정동진', content: '해돋이 명소. 모래시계공원, 레일바이크.', category: '여행', keywords: ['관광지', '여행', '일출'] }
+            ],
+            '강원특별자치도-속초시': [
+                { title: '대포항 방파제', content: '속초시 대포동. 오징어, 고등어, 가자미. 회센터 인접.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '장사항 방파제', content: '속초시 장사동. 한적한 낚시터. 볼락, 우럭.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '속초 중앙시장', content: '닭강정, 순대 맛집. 아바이마을 연계.', category: '여행', keywords: ['맛집', '여행', '관광지'] },
+                { title: '설악산 케이블카', content: '권금성 전망. 울산바위 조망.', category: '여행', keywords: ['명산', '여행', '관광지'] }
+            ],
+            // 충청남도
+            '충청남도-서천군': [
+                { title: '홍원항 방파제', content: '서천군 서면. 서해안 대표 방파제. 우럭, 노래미, 숭어.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '마량포구 방파제', content: '서천군 서면. 동백꽃 마을 인근. 우럭, 광어.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '춘장대해수욕장', content: '서천군 서면. 고운 모래, 낙조 명소.', category: '여행', keywords: ['여행', '해수욕장', '관광지'] },
+                { title: '국립생태원', content: '서천군 마서면. 생태 체험, 에코리움.', category: '여행', keywords: ['여행', '박물관', '관광지'] }
+            ],
+            // 전라남도
+            '전라남도-여수시': [
+                { title: '국동항 방파제', content: '여수시 국동. 감성돔, 볼락, 농어. 야간 낚시 명소.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '신기항 방파제', content: '여수시 돌산읍. 감성돔 대물 포인트. 돌산대교 조망.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '여수 밤바다', content: '여수 엑스포해양공원. 낭만포차, 해상케이블카.', category: '여행', keywords: ['여행', '야경드라이브', '관광지'] },
+                { title: '향일암', content: '돌산도 끝. 일출 명소. 동백꽃 유명.', category: '여행', keywords: ['여행', '사찰', '일출'] }
+            ],
+            // 부산
+            '부산광역시-기장군': [
+                { title: '대변항 방파제', content: '기장군 기장읍. 멸치축제 유명. 볼락, 고등어.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '칠암항 방파제', content: '기장군 일광면. 한적한 분위기. 볼락, 우럭.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '해동용궁사', content: '기장군 기장읍. 바다 옆 사찰. 일출 명소.', category: '여행', keywords: ['사찰', '여행', '일출'] },
+                { title: '죽성드림세트장', content: '기장군 기장읍. 드라마 촬영지. 해안 성당.', category: '여행', keywords: ['촬영지', '여행', '관광지'] }
+            ],
+            '부산광역시-해운대구': [
+                { title: '미포항 방파제', content: '해운대구 중동. 볼락, 고등어. 해운대 인접.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '청사포 방파제', content: '해운대구 중동. 다릿돌전망대 인근. 볼락.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '해운대해수욕장', content: '부산 대표 해변. 마린시티 야경.', category: '여행', keywords: ['여행', '해수욕장', '야경드라이브'] }
+            ],
+            // 제주
+            '제주특별자치도-제주시': [
+                { title: '한림항 방파제', content: '제주시 한림읍. 벵에돔, 볼락. 비양도 조망.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '애월항 방파제', content: '제주시 애월읍. 볼락, 우럭. 카페거리 인접.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '협재해수욕장', content: '제주시 한림읍. 에메랄드 바다. 비양도 배편.', category: '여행', keywords: ['여행', '해수욕장', '펜션'] },
+                { title: '만장굴', content: '제주시 구좌읍. 용암동굴. 세계자연유산.', category: '여행', keywords: ['여행', '관광지'] }
+            ],
+            '제주특별자치도-서귀포시': [
+                { title: '서귀포항 방파제', content: '서귀포시 서귀동. 벵에돔, 감성돔. 이중섭거리 인접.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '모슬포항 방파제', content: '서귀포시 대정읍. 대물 낚시 명소. 마라도 배편.', category: '낚시', keywords: ['낚시', '방파제', '낚시포인트'] },
+                { title: '성산일출봉', content: '서귀포시 성산읍. 유네스코 세계자연유산. 해녀 물질.', category: '여행', keywords: ['여행', '관광지', '명산'] },
+                { title: '천지연폭포', content: '서귀포시 서귀동. 야간 조명. 산책로.', category: '여행', keywords: ['여행', '관광지'] }
+            ]
+        };
+
+        // 카테고리 키워드 매핑
+        const categoryKeywords = {
+            '낚시포인트': ['낚시', '방파제', '낚시포인트', '낚시터'],
+            '명산': ['명산', '산', '등산', '트레킹'],
+            '숲길': ['숲길', '숲', '산책', '트레킹'],
+            '휴양림': ['휴양림', '캠핑', '숲'],
+            '수목원': ['수목원', '정원', '식물'],
+            '식물원': ['식물원', '정원', '식물'],
+            '꽃길': ['꽃', '꽃길', '정원'],
+            '벚꽃': ['벚꽃', '꽃', '봄'],
+            '단풍': ['단풍', '가을'],
+            '설경': ['눈', '겨울', '설경'],
+            '정원': ['정원', '수목원', '식물원'],
+            '걷기': ['걷기', '산책', '둘레길', '올레길'],
+            '드라이브': ['드라이브', '해안도로', '코스'],
+            '해안드라이브': ['해안', '드라이브', '바다'],
+            '산악드라이브': ['산악', '드라이브', '고갯길'],
+            '야경드라이브': ['야경', '드라이브', '밤'],
+            '관광지': ['관광', '명소', '여행'],
+            '역사탐방': ['역사', '문화', '유적', '사찰'],
+            '촬영지': ['촬영지', '드라마', '영화'],
+            '사찰': ['사찰', '절', '템플스테이'],
+            '박물관': ['박물관', '미술관', '전시'],
+            '오일장': ['오일장', '시장', '장터'],
+            '축제': ['축제', '행사', '페스티벌'],
+            '맛집': ['맛집', '음식', '먹거리'],
+            '카페': ['카페', '커피', '디저트'],
+            '펜션': ['펜션', '숙소', '호텔', '리조트']
+        };
+
+        // ============================================
+        // 지역별 데이터
+        // ============================================
+        const regionalData = {
+            '서울특별시': [
+                { title: '서울시 어르신 취업지원센터', content: '50세 이상 중장년층 대상 취업상담, 교육, 일자리 연계. 서울 전역 25개 센터 운영.', category: '복지', link: 'https://www.seoulsenior.or.kr', region: '서울' },
+                { title: '서울 시니어복지관 안내', content: '강남, 강북, 서초, 송파 등 각 구별 노인복지관 운영. 평생교육, 건강증진, 여가프로그램.', category: '복지', link: '', region: '서울' },
+                { title: '북한산 둘레길', content: '서울 근교 71km 21구간 둘레길. 접근성 좋고 난이도 다양. 우이령길 인기.', category: '여행', link: '', region: '서울' },
+                { title: '서울 남산 산책로', content: 'N서울타워, 한양도성길, 남산순환로. 케이블카 이용 가능. 야경 명소.', category: '여행', link: '', region: '서울' },
+                { title: '경복궁·창덕궁', content: '조선 왕궁 탐방. 65세 이상 무료입장. 한복 착용 시 무료.', category: '여행', link: '', region: '서울' },
+                { title: '서울 문화센터 시니어 강좌', content: '각 구 문화센터에서 서예, 그림, 악기, 댄스 등 저렴한 강좌 운영.', category: '취미', link: '', region: '서울' }
+            ],
+            '부산광역시': [
+                { title: '부산시 노인복지관', content: '해운대, 동래, 사상 등 각 구별 복지관. 건강체조, 컴퓨터, 어학 교육.', category: '복지', link: '', region: '부산' },
+                { title: '해운대 해변 산책로', content: '해운대~송정 해변 산책로. 달맞이고개, 블루라인파크 해변열차.', category: '여행', link: '', region: '부산' },
+                { title: '감천문화마을', content: '부산의 마추픽추. 알록달록 마을 벽화, 골목길 탐방. 포토존 다수.', category: '여행', link: '', region: '부산' },
+                { title: '태종대 유원지', content: '영도 남단 해안절벽. 다누비열차, 등대, 전망대. 65세 이상 할인.', category: '여행', link: '', region: '부산' },
+                { title: '자갈치시장', content: '부산 대표 수산시장. 신선한 회, 해산물. 2층 먹거리촌.', category: '여행', link: '', region: '부산' },
+                { title: '광안대교 야경', content: '광안리 해변에서 보는 야경 명소. 저녁 산책, 야경 드라이브 추천.', category: '여행', link: '', region: '부산' }
+            ],
+            '대구광역시': [
+                { title: '대구시 노인종합복지관', content: '수성구, 달서구 등 각 구 복지관. 건강교실, 취미교실 운영.', category: '복지', link: '', region: '대구' },
+                { title: '팔공산 갓바위', content: '동대구 팔공산. 갓바위 부처 참배, 케이블카. 단풍 명소.', category: '여행', link: '', region: '대구' },
+                { title: '대구 근대골목', content: '동산선교사 주택, 계산성당, 이상화고택 등 근대역사 탐방.', category: '여행', link: '', region: '대구' },
+                { title: '앞산 케이블카', content: '대구 앞산 전망대. 케이블카로 편하게 이동. 야경 명소.', category: '여행', link: '', region: '대구' },
+                { title: '서문시장', content: '대구 대표 재래시장. 야시장 먹거리, 전통상품. 밤 시장 인기.', category: '여행', link: '', region: '대구' }
+            ],
+            '인천광역시': [
+                { title: '인천시 어르신일자리센터', content: '미추홀구, 남동구 등 일자리 연계, 취업상담 지원.', category: '복지', link: '', region: '인천' },
+                { title: '월미도 문화의거리', content: '디스코팡팡, 바이킹 등 놀이기구. 월미산 전망대, 일몰 명소.', category: '여행', link: '', region: '인천' },
+                { title: '송도 센트럴파크', content: '수상택시, 한옥마을, 산책로. 고층빌딩 야경.', category: '여행', link: '', region: '인천' },
+                { title: '차이나타운·동화마을', content: '중국풍 거리, 짜장면 원조. 송월동 동화마을 벽화.', category: '여행', link: '', region: '인천' },
+                { title: '강화도 역사탐방', content: '전등사, 고인돌, 강화평화전망대. 섬 드라이브.', category: '여행', link: '', region: '인천' }
+            ],
+            '광주광역시': [
+                { title: '광주시 노인복지관', content: '동구, 서구, 북구 등 복지관. 어르신 건강교실, 문화프로그램.', category: '복지', link: '', region: '광주' },
+                { title: '무등산 국립공원', content: '광주 대표 명산. 무등산 입석대, 서석대. 케이블카 없어 도보 등반.', category: '여행', link: '', region: '광주' },
+                { title: '양림동 역사문화마을', content: '근대역사 건물, 펭귄마을, 이장우가옥. 골목길 투어.', category: '여행', link: '', region: '광주' },
+                { title: '국립아시아문화전당', content: '무료 전시, 공연, 체험. 시니어 프로그램 운영.', category: '여행', link: '', region: '광주' }
+            ],
+            '대전광역시': [
+                { title: '대전시 노인복지관', content: '유성구, 서구 등 복지관. 건강체조, IT교육, 취미교실.', category: '복지', link: '', region: '대전' },
+                { title: '한밭수목원', content: '도심 속 무료 수목원. 동원, 서원, 열대식물원. 산책 명소.', category: '여행', link: '', region: '대전' },
+                { title: '대전 엑스포과학공원', content: '한빛탑, 과학관, 화폐박물관. 가족 나들이 코스.', category: '여행', link: '', region: '대전' },
+                { title: '계족산 황톳길', content: '맨발 걷기 좋은 황톳길 14.5km. 산림욕, 건강 산책.', category: '여행', link: '', region: '대전' }
+            ],
+            '울산광역시': [
+                { title: '울산시 노인복지관', content: '남구, 중구 등 복지관. 건강증진, 평생교육 프로그램.', category: '복지', link: '', region: '울산' },
+                { title: '간절곶 일출', content: '한반도 해 먼저 뜨는 곳. 소망우체통, 간절곶등대.', category: '여행', link: '', region: '울산' },
+                { title: '대왕암공원', content: '울산 동구 해안절경. 솔숲 산책로, 대왕암. 출렁다리.', category: '여행', link: '', region: '울산' },
+                { title: '반구대 암각화', content: '선사시대 암각화 국보. 울주 천전리 각석과 함께 관람.', category: '여행', link: '', region: '울산' }
+            ],
+            '세종특별자치시': [
+                { title: '세종시 노인복지관', content: '세종시 어르신 복지서비스. 건강교실, 문화프로그램.', category: '복지', link: '', region: '세종' },
+                { title: '세종호수공원', content: '대한민국 최대 인공호수공원. 수상레저, 자전거, 산책.', category: '여행', link: '', region: '세종' },
+                { title: '국립세종수목원', content: '2020년 개원. 사계절 온실, 한국전통정원. 무료 입장.', category: '여행', link: '', region: '세종' }
+            ],
+            '경기도': [
+                { title: '경기도 노인일자리센터', content: '31개 시군 노인일자리 연계. 공익활동, 사회서비스형 일자리.', category: '복지', link: '', region: '경기' },
+                { title: '수원화성', content: '유네스코 세계유산. 화성행궁, 화서문, 장안문. 65세 이상 무료.', category: '여행', link: '', region: '경기' },
+                { title: '아침고요수목원 (가평)', content: '20개 테마정원. 사계절 축제. 잣나무숲길 산책.', category: '여행', link: '', region: '경기' },
+                { title: '남이섬 (춘천/가평)', content: '메타세쿼이아길, 은행나무길. 겨울연가 촬영지.', category: '여행', link: '', region: '경기' },
+                { title: '용인 한국민속촌', content: '전통마을 체험, 공연, 놀이기구. 65세 이상 50% 할인.', category: '여행', link: '', region: '경기' },
+                { title: '파주 헤이리예술마을', content: '갤러리, 박물관, 카페 모음. 예술 산책, 포토존.', category: '여행', link: '', region: '경기' },
+                { title: '양평 두물머리', content: '두 물줄기 합류점. 세미원 연꽃, 일출 명소.', category: '여행', link: '', region: '경기' }
+            ],
+            '강원특별자치도': [
+                { title: '강원도 귀농귀촌지원센터', content: '정선, 영월, 홍천 등 귀촌 정보, 체험프로그램.', category: '전원생활', link: '', region: '강원' },
+                { title: '설악산 국립공원', content: '한국 대표 명산. 대청봉, 울산바위, 비선대. 케이블카 권금성.', category: '여행', link: '', region: '강원' },
+                { title: '강릉 경포대', content: '경포호, 경포해변, 오죽헌. 커피거리 안목해변.', category: '여행', link: '', region: '강원' },
+                { title: '정동진 일출', content: '해돋이 명소. 정동진역, 모래시계공원, 썬크루즈 호텔.', category: '여행', link: '', region: '강원' },
+                { title: '속초 중앙시장', content: '닭강정, 순대, 오징어순대, 아바이마을. 먹거리 풍성.', category: '여행', link: '', region: '강원' },
+                { title: '평창 대관령 양떼목장', content: '양 먹이주기, 초원 산책. 선자령 풍력발전기.', category: '여행', link: '', region: '강원' },
+                { title: '춘천 남이섬·소양강', content: '소양강 스카이워크, 물레길 카누. 닭갈비 맛집.', category: '여행', link: '', region: '강원' }
+            ],
+            '충청북도': [
+                { title: '충북 노인복지관', content: '청주, 충주, 제천 복지관. 건강증진, 여가프로그램.', category: '복지', link: '', region: '충북' },
+                { title: '단양 도담삼봉', content: '남한강 세 봉우리. 석문, 구담봉, 사인암 포함 단양8경.', category: '여행', link: '', region: '충북' },
+                { title: '수안보온천', content: '국내 대표 온천지. 온천욕, 족욕공원. 월악산 인근.', category: '여행', link: '', region: '충북' },
+                { title: '청주 수암골 벽화마을', content: '달팽이마을. 벽화 골목길, 포토존, 전망대.', category: '여행', link: '', region: '충북' },
+                { title: '속리산 국립공원', content: '충북 명산. 법주사, 세조길. 단풍 명소.', category: '여행', link: '', region: '충북' }
+            ],
+            '충청남도': [
+                { title: '충남 귀농귀촌지원센터', content: '서천, 청양, 홍성 등 귀촌 체험, 빈집 정보.', category: '전원생활', link: '', region: '충남' },
+                { title: '태안 꽃지해수욕장', content: '낙조 명소. 할미바위·할아비바위. 태안해안국립공원.', category: '여행', link: '', region: '충남' },
+                { title: '공주 공산성', content: '유네스코 세계유산. 백제 왕궁터. 금강 조망, 야간 조명.', category: '여행', link: '', region: '충남' },
+                { title: '부여 궁남지', content: '백제 연못정원. 연꽃축제 7월. 서동요 테마파크.', category: '여행', link: '', region: '충남' },
+                { title: '아산 온양온천', content: '국내 최고(最古) 온천. 온천 족욕, 외암민속마을.', category: '여행', link: '', region: '충남' },
+                { title: '안면도 자연휴양림', content: '안면송 소나무숲. 숲속의 집, 산림욕장.', category: '여행', link: '', region: '충남' }
+            ],
+            '전북특별자치도': [
+                { title: '전북 노인복지관', content: '전주, 군산, 익산 복지관. 평생교육, 건강프로그램.', category: '복지', link: '', region: '전북' },
+                { title: '전주 한옥마을', content: '한옥 800여 채. 비빔밥, 콩나물국밥. 경기전, 전동성당.', category: '여행', link: '', region: '전북' },
+                { title: '고창 청보리밭', content: '4~5월 청보리 물결. 고창읍성, 선운사 동백꽃.', category: '여행', link: '', region: '전북' },
+                { title: '군산 근대역사거리', content: '일제강점기 건축물. 초원사진관, 신흥동 일본식가옥.', category: '여행', link: '', region: '전북' },
+                { title: '무주 덕유산 리조트', content: '곤돌라로 향적봉 근처. 겨울 눈꽃, 여름 피서.', category: '여행', link: '', region: '전북' },
+                { title: '변산반도 국립공원', content: '내소사, 채석강, 적벽강. 해안+산악 겸비.', category: '여행', link: '', region: '전북' }
+            ],
+            '전라남도': [
+                { title: '전남 귀농귀촌지원센터', content: '순천, 담양, 곡성 등 귀촌 정보, 체험마을.', category: '전원생활', link: '', region: '전남' },
+                { title: '순천만국가정원', content: '국가정원 1호. 세계정원, 습지센터. 스카이큐브.', category: '여행', link: '', region: '전남' },
+                { title: '여수 밤바다', content: '여수 엑스포해양공원. 낭만포차, 돌산대교 야경.', category: '여행', link: '', region: '전남' },
+                { title: '담양 죽녹원', content: '대나무 숲길 8개 코스. 메타세쿼이아 가로수길.', category: '여행', link: '', region: '전남' },
+                { title: '보성 녹차밭', content: '대한다원 초록 물결. 녹차 아이스크림, 녹차찜질방.', category: '여행', link: '', region: '전남' },
+                { title: '목포 유달산', content: '목포 야경 조망. 노적봉, 유달산 조각공원. 케이블카.', category: '여행', link: '', region: '전남' },
+                { title: '완도 청산도', content: '슬로시티 섬. 슬로길 걷기. 서편제 촬영지.', category: '여행', link: '', region: '전남' }
+            ],
+            '경상북도': [
+                { title: '경북 노인복지관', content: '경주, 안동, 포항 복지관. 건강교실, 문화프로그램.', category: '복지', link: '', region: '경북' },
+                { title: '경주 역사유적지구', content: '불국사, 석굴암, 대릉원, 동궁과월지. 세계유산.', category: '여행', link: '', region: '경북' },
+                { title: '안동 하회마을', content: '유네스코 세계유산. 하회탈춤, 부용대 조망.', category: '여행', link: '', region: '경북' },
+                { title: '포항 호미곶', content: '한반도 호랑이 꼬리. 상생의 손, 일출 명소.', category: '여행', link: '', region: '경북' },
+                { title: '영주 부석사', content: '유네스코 세계유산. 무량수전, 낙조 명소.', category: '여행', link: '', region: '경북' },
+                { title: '울릉도·독도', content: '동해 화산섬. 나리분지, 봉래폭포, 독도 관광선.', category: '여행', link: '', region: '경북' },
+                { title: '청송 주왕산', content: '기암괴석, 주왕계곡, 절골폭포. 사과 특산물.', category: '여행', link: '', region: '경북' }
+            ],
+            '경상남도': [
+                { title: '경남 노인복지관', content: '창원, 진주, 김해 복지관. 건강증진, 여가활동.', category: '복지', link: '', region: '경남' },
+                { title: '통영 케이블카', content: '미륵산 전망. 한려수도 조망. 동피랑벽화마을.', category: '여행', link: '', region: '경남' },
+                { title: '거제 외도 보타니아', content: '해상식물공원. 유람선, 해금강 관광.', category: '여행', link: '', region: '경남' },
+                { title: '진해 군항제', content: '4월 벚꽃축제. 여좌천, 경화역, 해군사관학교.', category: '여행', link: '', region: '경남' },
+                { title: '합천 해인사', content: '팔만대장경 봉안. 유네스코 세계유산. 가야산.', category: '여행', link: '', region: '경남' },
+                { title: '남해 독일마을', content: '파독 광부·간호사 정착촌. 독일식 건물, 바다 조망.', category: '여행', link: '', region: '경남' },
+                { title: '지리산 둘레길', content: '3개 도 걸쳐 274km. 마을과 마을 잇는 저지대 숲길.', category: '여행', link: '', region: '경남' }
+            ],
+            '제주특별자치도': [
+                { title: '제주 노인복지관', content: '제주시, 서귀포시 복지관. 건강교실, 평생교육.', category: '복지', link: '', region: '제주' },
+                { title: '한라산 국립공원', content: '남한 최고봉 1,947m. 백록담, 성판악·관음사 코스.', category: '여행', link: '', region: '제주' },
+                { title: '성산일출봉', content: '유네스코 세계자연유산. 분화구 정상, 해녀 물질.', category: '여행', link: '', region: '제주' },
+                { title: '제주 올레길', content: '해안 둘레길 26코스, 425km. 스탬프 투어 인기.', category: '여행', link: '', region: '제주' },
+                { title: '우도', content: '제주 동쪽 섬. 소머리오름, 검멀레해변, 땅콩 아이스크림.', category: '여행', link: '', region: '제주' },
+                { title: '비자림', content: '800년 비자나무 숲. 평탄한 산책로. 피톤치드.', category: '여행', link: '', region: '제주' },
+                { title: '사려니숲길', content: '삼나무·편백 숲길 15km. 평탄하고 걷기 좋음.', category: '여행', link: '', region: '제주' },
+                { title: '오설록 티뮤지엄', content: '녹차밭 전망 카페. 녹차 아이스크림, 녹차 롤케이크.', category: '여행', link: '', region: '제주' },
+                { title: '협재·금능해수욕장', content: '에메랄드빛 바다. 비양도 조망. 스노클링.', category: '여행', link: '', region: '제주' }
+            ]
+        };
+
+        // ============================================
+        // 사전 정의 데이터 (즉시 로딩)
+        // ============================================
+        const preloadedData = {
+            // 복지행정
+            '기초연금': [
+                { title: '기초연금 신청 자격', content: '만 65세 이상, 소득인정액이 선정기준액 이하인 분. 2024년 기준 단독가구 월 213만원, 부부가구 월 340.8만원 이하.', category: '복지', link: 'https://www.bokjiro.go.kr' },
+                { title: '기초연금 신청 방법', content: '주소지 읍·면·동 주민센터 방문 또는 복지로 온라인 신청. 신분증, 통장사본, 금융정보제공동의서 필요.', category: '복지', link: 'https://www.bokjiro.go.kr' },
+                { title: '2024년 기초연금 금액', content: '단독가구 기준 월 최대 334,810원, 부부가구 535,680원. 국민연금 연계 감액 적용 가능.', category: '복지', link: 'https://www.nps.or.kr' }
+            ],
+            '바우처': [
+                { title: '노인돌봄 바우처', content: '만 65세 이상 노인에게 가사·활동 지원 서비스 제공. 소득 수준에 따라 본인부담금 차등.', category: '복지', link: 'https://www.bokjiro.go.kr' },
+                { title: '문화누리카드', content: '기초생활수급자·차상위계층 대상 연간 13만원 문화비 지원. 공연, 영화, 여행, 도서 등 사용 가능.', category: '복지', link: 'https://www.mnuri.kr' },
+                { title: '에너지 바우처', content: '에너지 취약계층 대상 전기·가스·등유 등 에너지 구입비 지원. 하절기·동절기 차등 지급.', category: '복지', link: 'https://www.energyv.or.kr' }
+            ],
+            '돌봄서비스': [
+                { title: '노인맞춤돌봄서비스', content: '만 65세 이상 독거노인·취약노인 대상. 안전확인, 생활교육, 사회참여 프로그램 제공.', category: '복지', link: 'https://www.bokjiro.go.kr' },
+                { title: '장기요양보험', content: '만 65세 이상 또는 노인성 질병 보유자 중 장기요양등급 인정자. 재가급여·시설급여 선택 가능.', category: '복지', link: 'https://www.longtermcare.or.kr' },
+                { title: '응급안전안심서비스', content: '독거노인·장애인 가정에 응급호출기 설치. 24시간 응급상황 모니터링 및 출동 서비스.', category: '복지', link: 'https://www.129.go.kr' }
+            ],
+            '일자리': [
+                { title: '노인일자리 및 사회활동 지원사업', content: '만 65세 이상 대상. 공익활동(월 30시간, 29만원), 사회서비스형(월 60시간, 71.4만원) 등.', category: '복지', link: 'https://www.kordi.or.kr' },
+                { title: '시니어인턴십', content: '만 60세 이상 대상. 기업 인턴 근무 후 정규직 전환 시 기업에 인건비 지원.', category: '복지', link: 'https://www.kordi.or.kr' },
+                { title: '고령자친화기업', content: '고령자 다수 고용 기업 지원. 시설개선비, 임금 보조 등 다양한 지원책 제공.', category: '복지', link: 'https://www.moel.go.kr' }
+            ],
+            '의료지원': [
+                { title: '노인틀니 지원', content: '만 65세 이상 건강보험 가입자. 완전틀니·부분틀니 급여화로 본인부담 30% 수준.', category: '복지', link: 'https://www.nhis.or.kr' },
+                { title: '노인 임플란트 지원', content: '만 65세 이상 대상 평생 2개까지 임플란트 건강보험 적용. 본인부담 약 30%.', category: '복지', link: 'https://www.nhis.or.kr' },
+                { title: '노인 안검진 지원', content: '만 65세 이상 백내장·녹내장 등 안질환 조기 발견을 위한 무료 안검진 사업.', category: '복지', link: 'https://www.mohw.go.kr' }
+            ],
+            '주거지원': [
+                { title: '고령자 주거지원 주택', content: '만 65세 이상 무주택 저소득층 대상. 시세 30~50% 수준의 저렴한 임대료.', category: '복지', link: 'https://www.myhome.go.kr' },
+                { title: '주거급여', content: '기초생활수급자 대상 임차료 또는 주택 수선비 지원. 지역·가구원수별 차등.', category: '복지', link: 'https://www.bokjiro.go.kr' },
+                { title: '주택개조 지원', content: '고령자·장애인 가구 대상 문턱 제거, 안전손잡이 설치 등 주거환경 개선 지원.', category: '복지', link: 'https://www.myhome.go.kr' }
+            ],
+            '경로우대': [
+                { title: '지하철 무료 이용', content: '만 65세 이상 전국 도시철도(지하철) 무료 이용. 신분증 제시 또는 우대용 교통카드 사용.', category: '복지', link: '' },
+                { title: 'KTX·SRT 할인', content: '만 65세 이상 KTX 30%, SRT 30% 할인 (주중 기준). 주말·공휴일은 할인율 다름.', category: '복지', link: 'https://www.letskorail.com' },
+                { title: '국립공원·박물관 무료', content: '만 65세 이상 국립공원 입장료 면제, 국립박물관·미술관 무료 관람.', category: '복지', link: '' }
+            ],
+            '교육문화': [
+                { title: '노인대학/노인복지관', content: '전국 노인복지관에서 다양한 평생교육 프로그램 운영. 어학, 컴퓨터, 건강체조 등.', category: '복지', link: 'https://www.noin.or.kr' },
+                { title: '디지털 배움터', content: '만 55세 이상 대상 스마트폰·키오스크 활용 교육. 전국 1,000여 개소 운영.', category: '복지', link: 'https://www.디지털배움터.kr' },
+                { title: '시니어 문화예술교육', content: '지역문화재단 주관 미술, 음악, 공예 등 문화예술 교육 프로그램 무료 운영.', category: '복지', link: '' }
+            ],
+
+            // 건강
+            '고혈압': [
+                { title: '고혈압 기준 및 증상', content: '수축기 140mmHg 이상 또는 이완기 90mmHg 이상. 대부분 무증상이며 두통, 어지러움, 코피 등 나타날 수 있음.', category: '건강', link: 'https://health.kdca.go.kr' },
+                { title: '고혈압 관리 방법', content: '저염식 식단, 규칙적 운동(주 150분 이상), 금연·절주, 스트레스 관리, 처방약 꾸준히 복용.', category: '건강', link: 'https://www.kdca.go.kr' },
+                { title: '고혈압에 좋은 음식', content: '칼륨이 풍부한 바나나, 시금치, 고구마. 오메가3가 풍부한 등푸른 생선. 마늘, 양파 등.', category: '건강', link: '' }
+            ],
+            '당뇨병': [
+                { title: '당뇨병 증상', content: '다음(多飮), 다뇨(多尿), 다식(多食), 체중감소. 공복혈당 126mg/dL 이상 또는 당화혈색소 6.5% 이상.', category: '건강', link: 'https://www.diabetes.or.kr' },
+                { title: '당뇨병 식이요법', content: '규칙적인 식사, 탄수화물 적정량 섭취, 식이섬유 충분히, GI지수 낮은 음식 선택.', category: '건강', link: 'https://www.diabetes.or.kr' },
+                { title: '당뇨 합병증 예방', content: '혈당·혈압·콜레스테롤 관리, 정기 안과·신장 검진, 발 관리 철저히.', category: '건강', link: '' }
+            ],
+            '관절염': [
+                { title: '퇴행성 관절염', content: '관절 연골이 닳아 발생. 무릎, 고관절, 손가락 관절에 주로 발생. 통증, 뻣뻣함, 부종.', category: '건강', link: 'https://www.rheumato.org' },
+                { title: '관절염 운동법', content: '수영, 아쿠아로빅 등 관절 부담 적은 운동 권장. 적정 체중 유지로 관절 부담 감소.', category: '건강', link: '' },
+                { title: '관절에 좋은 영양소', content: '글루코사민, 콘드로이틴, MSM, 콜라겐 등 연골 건강 보조. 오메가3로 염증 완화.', category: '건강', link: '' }
+            ],
+            '치매예방': [
+                { title: '치매 예방 수칙', content: '뇌 건강 3권(운동, 식사, 독서), 3금(절주, 금연, 뇌손상예방), 3행(건강검진, 소통, 치매조기발견).', category: '건강', link: 'https://www.nid.or.kr' },
+                { title: '치매 초기 증상', content: '최근 기억력 저하, 익숙한 일 수행 어려움, 언어장애, 시공간 능력 저하, 판단력 감소.', category: '건강', link: 'https://www.nid.or.kr' },
+                { title: '두뇌 활성화 활동', content: '퍼즐, 바둑, 장기, 새로운 언어 배우기, 악기 연주, 사회활동 참여 등으로 인지기능 유지.', category: '건강', link: '' }
+            ],
+            '골다공증': [
+                { title: '골다공증 위험요인', content: '폐경 후 여성, 고령, 칼슘·비타민D 부족, 운동 부족, 흡연, 과음, 스테로이드 장기복용.', category: '건강', link: 'https://www.osteoporosis.or.kr' },
+                { title: '골다공증 예방법', content: '칼슘(하루 800~1000mg) 섭취, 비타민D(햇빛 20분), 체중부하 운동, 금연·절주.', category: '건강', link: '' },
+                { title: '뼈에 좋은 음식', content: '우유, 치즈, 멸치, 두부, 시금치, 브로콜리. 비타민D는 연어, 고등어, 달걀노른자.', category: '건강', link: '' }
+            ],
+            '우울증': [
+                { title: '노인 우울증 증상', content: '의욕 저하, 수면장애, 식욕 변화, 집중력 감소, 신체 증상 호소(두통, 소화불량 등).', category: '건강', link: 'https://www.mentalhealth.go.kr' },
+                { title: '우울증 극복 방법', content: '규칙적 생활, 가벼운 운동, 사회활동 참여, 전문가 상담. 필요시 약물치료 병행.', category: '건강', link: 'https://www.mentalhealth.go.kr' },
+                { title: '마음건강 상담전화', content: '정신건강위기상담 1577-0199 (24시간), 자살예방상담 1393, 생명의전화 1588-9191.', category: '건강', link: '' }
+            ],
+            '건강보조제': [
+                { title: '시니어 추천 영양제', content: '종합비타민, 비타민D, 오메가3, 칼슘+마그네슘, 프로바이오틱스, 루테인 등.', category: '건강', link: '' },
+                { title: '영양제 복용 시 주의사항', content: '복용 중인 약과 상호작용 확인, 권장량 준수, 공복/식후 복용법 확인, 의사와 상담.', category: '건강', link: '' },
+                { title: '건강기능식품 인증 확인', content: '식약처 건강기능식품 인증마크 확인. 과대광고 주의, 건강기능식품 정보포털 활용.', category: '건강', link: 'https://www.foodsafetykorea.go.kr' }
+            ],
+            '운동법': [
+                { title: '시니어 추천 운동', content: '걷기, 수영, 자전거, 스트레칭, 요가, 태극권. 주 150분 이상 중강도 유산소 운동 권장.', category: '건강', link: '' },
+                { title: '근력 운동의 중요성', content: '근감소증 예방을 위해 주 2~3회 근력운동 필수. 스쿼트, 벽 푸쉬업, 밴드 운동 등.', category: '건강', link: '' },
+                { title: '아침 스트레칭 루틴', content: '목 돌리기, 어깨 돌리기, 옆구리 늘리기, 무릎 굽혔다 펴기, 발목 돌리기 등 10분 실시.', category: '건강', link: '' }
+            ],
+            '민간요법': [
+                { title: '생강차 효능', content: '소화 촉진, 혈액순환 개선, 면역력 강화, 감기 예방. 생강 우린 물에 꿀 타서 복용.', category: '건강', link: '' },
+                { title: '쑥 활용법', content: '쑥 찜질로 혈액순환 개선, 쑥떡으로 철분 섭취, 쑥탕으로 몸 따뜻하게.', category: '건강', link: '' },
+                { title: '반신욕 효과', content: '38~40도 물에 명치 아래까지 20~30분. 혈액순환, 피로회복, 수면 개선에 도움.', category: '건강', link: '' }
+            ],
+            '영양관리': [
+                { title: '시니어 균형 식단', content: '단백질 충분히(계란, 두부, 생선), 채소 다양하게, 통곡물, 유제품 매일, 수분 충분히.', category: '건강', link: '' },
+                { title: '소화 잘 되는 음식', content: '죽, 된장국, 두부, 바나나, 삶은 채소, 흰살 생선 등 부드럽고 소화 잘 되는 음식.', category: '건강', link: '' },
+                { title: '면역력 높이는 음식', content: '마늘, 양파, 버섯, 브로콜리, 고구마, 발효식품(김치, 된장), 녹황색 채소.', category: '건강', link: '' }
+            ],
+
+            // 취미
+            '등산': [
+                { title: '시니어 등산 코스 추천', content: '북한산 우이령길, 관악산 연주대코스, 무등산 평탄코스 등 경사 완만한 코스 추천.', category: '취미', link: 'https://www.forest.go.kr' },
+                { title: '등산 장비 필수품', content: '등산화, 등산스틱, 배낭, 바람막이, 모자, 물통, 간식, 구급약품 등.', category: '취미', link: '' },
+                { title: '안전한 등산 요령', content: '컨디션 확인 후 출발, 충분한 수분 섭취, 무리하지 않기, 해 지기 전 하산.', category: '취미', link: '' }
+            ],
+            '골프': [
+                { title: '골프 입문 가이드', content: '연습장에서 기본 스윙 연습 → 9홀 라운드 → 18홀 라운드 순서로 입문 권장.', category: '취미', link: '' },
+                { title: '초보자용 골프채 추천', content: '풀세트보다 하프세트(7개)로 시작. 드라이버, 3번우드, 7번아이언, PW, 퍼터 필수.', category: '취미', link: '' },
+                { title: '스크린골프장 활용', content: '실내에서 편하게 연습 가능. 날씨 관계없이 이용, 가격 부담 적어 초보자에게 적합.', category: '취미', link: '' }
+            ],
+            '수영': [
+                { title: '수영 효과', content: '관절 부담 없는 전신운동, 심폐기능 강화, 근력 향상, 스트레스 해소에 효과적.', category: '취미', link: '' },
+                { title: '초보자 수영 강습', content: '지역 수영장 성인반 등록. 보통 3~6개월이면 자유형·배영 가능. 물 적응부터 차근히.', category: '취미', link: '' },
+                { title: '아쿠아로빅 추천', content: '물속에서 하는 에어로빅. 관절 부담 적고 운동 효과 좋아 시니어에게 인기.', category: '취미', link: '' }
+            ],
+            '사진': [
+                { title: '스마트폰 사진 촬영법', content: '격자선 활용, 자연광 활용, 초점 터치, 다양한 앵글 시도. 사진 앱으로 보정.', category: '취미', link: '' },
+                { title: '시니어 사진 동호회', content: '지역 문화센터, 노인복지관에서 사진반 운영. 출사 모임으로 친목과 여행 겸비.', category: '취미', link: '' },
+                { title: '사진 인화 서비스', content: '온라인 포토북 제작 서비스 활용. 여행 사진으로 앨범 만들기, 가족에게 선물.', category: '취미', link: '' }
+            ],
+            '서예': [
+                { title: '서예 시작하기', content: '문방사우(붓, 먹, 벼루, 종이) 준비. 기본 획(점, 횡, 수, 삐침, 파임) 연습부터.', category: '취미', link: '' },
+                { title: '서예의 건강 효과', content: '집중력 향상, 스트레스 해소, 손 기능 유지, 명상 효과로 마음 안정.', category: '취미', link: '' },
+                { title: '서예 강좌 정보', content: '평생교육원, 문화센터, 서예학원에서 성인반 운영. 무료 강좌도 많음.', category: '취미', link: '' }
+            ],
+            '그림': [
+                { title: '그림 입문 추천', content: '수채화, 색연필화로 시작. 간단한 정물, 풍경부터. 온라인 강좌도 다양.', category: '취미', link: '' },
+                { title: '어반스케치 입문', content: '도시 풍경을 빠르게 스케치하는 취미. 스케치북, 펜 하나면 어디서든 가능.', category: '취미', link: '' },
+                { title: '그림 그리기의 효과', content: '창의력 향상, 집중력 강화, 성취감, 치매 예방에도 도움.', category: '취미', link: '' }
+            ],
+            '낚시': [
+                { title: '낚시 입문 가이드', content: '민물낚시(붕어)나 바다낚시(원투) 중 선택. 초보용 세트 구매 후 경험자와 동행 권장.', category: '취미', link: '' },
+                { title: '낚시 장소 추천', content: '수도권: 팔당댐, 남한강. 서해: 홍원항, 궁평항. 동해: 주문진, 강릉. 남해: 통영, 여수.', category: '취미', link: '' },
+                { title: '낚시 안전 수칙', content: '구명조끼 착용, 음주 금지, 날씨 확인, 미끄러운 바위 조심, 보호자 동행 권장.', category: '취미', link: '' }
+            ],
+            '텃밭': [
+                { title: '주말농장 시작하기', content: '지자체 운영 주말농장 신청. 연간 10~20만원 수준. 상추, 고추, 토마토 등 재배.', category: '취미', link: '' },
+                { title: '베란다 텃밭 만들기', content: '화분에 상추, 쪽파, 깻잎 등 재배 가능. 햇볕 잘 드는 곳에 배치, 적정 물 주기.', category: '취미', link: '' },
+                { title: '초보자 추천 작물', content: '상추, 청경채, 쪽파, 깻잎, 허브류 등 관리 쉽고 수확 빠른 작물 추천.', category: '취미', link: '' }
+            ],
+            '악기': [
+                { title: '시니어 추천 악기', content: '우쿨렐레(가볍고 배우기 쉬움), 하모니카(폐활량 운동), 오카리나(음색 좋음), 통기타.', category: '취미', link: '' },
+                { title: '악기 배우기 효과', content: '두뇌 활성화, 손가락 운동, 성취감, 음악 동호회 통해 사회활동.', category: '취미', link: '' },
+                { title: '무료 악기 강좌', content: '유튜브 무료 강좌, 노인복지관 악기반, 문화센터 성인반 활용.', category: '취미', link: '' }
+            ],
+            '댄스': [
+                { title: '시니어 댄스 종류', content: '라인댄스, 사교댄스, 스퀘어댄스, 한국무용, 에어로빅 댄스 등 다양.', category: '취미', link: '' },
+                { title: '라인댄스 효과', content: '파트너 없이 가능, 전신운동, 기억력 향상, 사회활동. 전국 동호회 활발.', category: '취미', link: '' },
+                { title: '댄스 강습 정보', content: '주민센터, 문화센터, 노인복지관에서 무료 또는 저렴한 강습 운영.', category: '취미', link: '' }
+            ],
+            '바둑': [
+                { title: '바둑 입문 방법', content: '온라인 바둑(타이젬, 사이버오로)으로 기초 배우기. 기원에서 대국 경험 쌓기.', category: '취미', link: '' },
+                { title: '바둑의 두뇌 효과', content: '전략적 사고력, 집중력, 기억력 향상. 치매 예방에 효과적인 두뇌 게임.', category: '취미', link: '' },
+                { title: '전국 기원 정보', content: '동네 기원 방문하여 비슷한 실력의 상대와 대국. 친목 도모에도 좋음.', category: '취미', link: '' }
+            ],
+            '요가': [
+                { title: '시니어 요가 효과', content: '유연성 향상, 균형감각 개선, 스트레스 해소, 명상을 통한 마음 안정.', category: '취미', link: '' },
+                { title: '의자 요가 추천', content: '관절 부담 적은 의자 요가. 앉아서 스트레칭, 호흡법 연습. 초보자에게 적합.', category: '취미', link: '' },
+                { title: '요가 강좌 찾기', content: '노인복지관, 주민센터, 문화센터에서 시니어 요가반 운영. 유튜브 홈요가도 활용.', category: '취미', link: '' }
+            ],
+
+            // 여행
+            '명산': [
+                { title: '설악산 (강원)', content: '한국의 대표 명산. 대청봉(1,708m), 울산바위, 비선대, 공룡능선 등 절경. 케이블카로 권금성 관광 가능.', category: '여행', link: 'https://www.knps.or.kr' },
+                { title: '지리산 (전남/경남)', content: '국립공원 1호, 천왕봉(1,915m). 노고단 운해, 세석평전, 뱀사골 계곡 등 명소 다수.', category: '여행', link: 'https://www.knps.or.kr' },
+                { title: '한라산 (제주)', content: '남한 최고봉(1,947m). 백록담, 사라오름, 1100고지 등. 성판악-관음사 종주 코스 인기.', category: '여행', link: 'https://www.hallasan.go.kr' },
+                { title: '북한산 (서울/경기)', content: '도심 속 명산. 백운대(836m), 인수봉 등. 우이령길 등 쉬운 코스도 많음.', category: '여행', link: 'https://www.knps.or.kr' }
+            ],
+            '숲길': [
+                { title: '제주 비자림', content: '800년 된 비자나무 숲. 평탄한 산책로로 남녀노소 누구나 가능. 피톤치드 풍부.', category: '여행', link: '' },
+                { title: '장성 편백숲 우드랜드', content: '국내 최대 편백나무 조림지. 산림욕장, 치유의 숲 운영. 편백 숲길 걷기 좋음.', category: '여행', link: '' },
+                { title: '서울 홍릉숲', content: '서울 도심 속 숲. 산림청 소속 연구림. 다양한 수목과 고즈넉한 산책로.', category: '여행', link: '' },
+                { title: '제주 사려니숲길', content: '붉은오름~사려니오름 15km 숲길. 삼나무, 편백나무 숲. 평탄하고 걷기 좋음.', category: '여행', link: '' }
+            ],
+            '휴양림': [
+                { title: '국립자연휴양림 예약', content: '산림청 산림복지포털에서 온라인 예약. 숙박시설, 야영장 운영. 2개월 전 예약 시작.', category: '여행', link: 'https://www.foresttrip.go.kr' },
+                { title: '추천 자연휴양림', content: '국립 축령산, 유명산, 대관령, 용문산, 가리왕산 휴양림 등 인기.', category: '여행', link: 'https://www.foresttrip.go.kr' },
+                { title: '휴양림 이용 팁', content: '성수기 피하면 여유로움. 산책로, 숲체험 프로그램 활용. 간단한 취사 가능.', category: '여행', link: '' }
+            ],
+            '수목원': [
+                { title: '국립수목원 (광릉)', content: '조선 왕릉 주변 천연림. 산림박물관, 열대식물관. 사전예약제 운영.', category: '여행', link: 'https://kna.forest.go.kr' },
+                { title: '아침고요수목원', content: '경기도 가평 위치. 20개 테마정원. 계절별 축제 개최. 사진 명소.', category: '여행', link: 'https://www.morningcalm.co.kr' },
+                { title: '신구대학교 식물원', content: '성남 위치. 생태정원, 습지원, 암석원 등 다양한 테마. 무료 입장.', category: '여행', link: '' }
+            ],
+            '식물원': [
+                { title: '서울식물원', content: '마곡 위치. 온실, 호수공원, 습지원. 세계 각국 식물 12개 도시 테마로 전시.', category: '여행', link: 'https://botanicpark.seoul.go.kr' },
+                { title: '여미지식물원 (제주)', content: '아시아 최대 온실. 열대과일, 수생식물 등 2,000여 종 전시. 중문관광단지 내.', category: '여행', link: '' },
+                { title: '한밭수목원 (대전)', content: '도심 속 무료 수목원. 동원, 서원, 열대식물원. 대전엑스포과학공원 인근.', category: '여행', link: '' }
+            ],
+            '꽃길': [
+                { title: '태안 튤립축제', content: '4~5월 코리아플라워파크. 300만 송이 튤립. 포토존 다양.', category: '여행', link: '' },
+                { title: '고창 청보리밭', content: '4~5월 학원농장. 초록 청보리 물결. 영화 촬영지로 유명.', category: '여행', link: '' },
+                { title: '양평 세미원', content: '두물머리 인근. 연꽃, 수련 6~8월 절정. 수생식물 전문 정원.', category: '여행', link: '' }
+            ],
+            '벚꽃': [
+                { title: '진해 군항제', content: '4월 초 진해 일대. 벚꽃 터널, 여좌천, 경화역 등 포토존.', category: '여행', link: '' },
+                { title: '여의도 윤중로', content: '서울 대표 벚꽃 명소. 한강 따라 벚꽃길. 4월 초 봄꽃축제.', category: '여행', link: '' },
+                { title: '경주 보문호', content: '호수 둘레길 따라 벚꽃. 야간 조명으로 밤 벚꽃도 운치.', category: '여행', link: '' }
+            ],
+            '단풍': [
+                { title: '내장산 단풍', content: '호남 대표 단풍 명소. 내장사 진입로 단풍터널. 10월 말~11월 초 절정.', category: '여행', link: '' },
+                { title: '설악산 단풍', content: '9월 말부터 물듬. 대청봉~천불동계곡~비선대 코스 인기.', category: '여행', link: '' },
+                { title: '남산 단풍', content: '서울 도심 단풍. 북측 순환로 단풍터널. 케이블카로 편하게 관람.', category: '여행', link: '' }
+            ],
+            '설경': [
+                { title: '태백산 눈꽃', content: '겨울 눈꽃 산행 명소. 당골광장~천제단 코스. 1월 눈꽃축제.', category: '여행', link: '' },
+                { title: '덕유산 설천봉', content: '무주리조트 곤돌라로 쉽게 접근. 상고대와 눈꽃 절경.', category: '여행', link: '' },
+                { title: '한라산 어리목', content: '겨울 한라산 설경. 어리목~윗세오름 코스. 눈꽃 명소.', category: '여행', link: '' }
+            ],
+            '정원': [
+                { title: '순천만국가정원', content: '한국 1호 국가정원. 세계정원, 한국정원, 습지센터 등. 스카이큐브로 순천만습지 연결.', category: '여행', link: 'https://scgardens.or.kr' },
+                { title: '아침고요수목원', content: '가평 대표 정원. 한국정원, 에덴정원 등 20개 테마. 사계절 축제.', category: '여행', link: '' },
+                { title: '벽초지문화수목원', content: '파주 위치. 유럽식 정원, 호수정원. 웨딩촬영 명소.', category: '여행', link: '' }
+            ],
+            '걷기': [
+                { title: '제주 올레길', content: '해안 둘레길 26코스, 총 425km. 코스별 난이도 다양. 스탬프 투어 인기.', category: '여행', link: 'https://www.jejuolle.org' },
+                { title: '지리산 둘레길', content: '3개 도 5개 시군 22개 구간, 274km. 마을과 마을을 잇는 저지대 숲길.', category: '여행', link: 'https://www.trail.or.kr' },
+                { title: '북한산 둘레길', content: '서울 근교 71km 21구간. 순환형 저지대 숲길. 접근성 좋고 가벼운 산책에 적합.', category: '여행', link: '' }
+            ],
+            '드라이브': [
+                { title: '동해안 7번 국도', content: '강릉~삼척 해안도로. 정동진, 묵호항, 추암해변 등 경유. 일출 명소.', category: '여행', link: '' },
+                { title: '제주 1132번 해안도로', content: '제주 일주도로 중 월정리~세화 구간. 에메랄드 바다 조망.', category: '여행', link: '' },
+                { title: '남해 물미해안도로', content: '남해 창선~삼동면 19km. 바다 위 해안도로. 한려해상 조망.', category: '여행', link: '' }
+            ],
+            '해안드라이브': [
+                { title: '부산 해운대~기장', content: '달맞이고개~송정~기장 해안도로. 동백섬, 해동용궁사 경유.', category: '여행', link: '' },
+                { title: '여수 향일암 도로', content: '돌산도 향일암 가는 길. 금오도 조망. 일출 명소로 유명.', category: '여행', link: '' },
+                { title: '태안 만리포~꽃지', content: '서해안 해수욕장 경유 드라이브. 낙조 명소로 유명.', category: '여행', link: '' }
+            ],
+            '산악드라이브': [
+                { title: '미시령 옛길', content: '속초~인제 잇는 고갯길. 굽이굽이 산악도로. 가을 단풍 명소.', category: '여행', link: '' },
+                { title: '지리산 성삼재', content: '구례~노고단 가는 길. 섬진강 운해 조망. 새벽 일출 드라이브.', category: '여행', link: '' },
+                { title: '정선 만항재', content: '국내 자동차 도달 최고 고갯길(1,330m). 하늘 아래 첫 고개.', category: '여행', link: '' }
+            ],
+            '야경드라이브': [
+                { title: '부산 광안대교', content: '광안리 해변~광안대교 야경. 마린시티 불빛 조망.', category: '여행', link: '' },
+                { title: '서울 올림픽대로', content: '한강변 야경 드라이브. 반포대교 무지개분수, 여의도 빌딩숲.', category: '여행', link: '' },
+                { title: '인천 송도 센트럴파크', content: '송도 야경 드라이브. 컨벤시아 주변 고층빌딩 불빛.', category: '여행', link: '' }
+            ],
+            '관광지': [
+                { title: '경주 역사유적지구', content: '유네스코 세계유산. 불국사, 석굴암, 동궁과월지, 대릉원, 첨성대 등.', category: '여행', link: '' },
+                { title: '제주 한라산~성산일출봉', content: '유네스코 자연유산. 한라산 백록담, 성산일출봉 분화구. 세계지질공원.', category: '여행', link: '' },
+                { title: '안동 하회마을', content: '유네스코 세계유산. 조선시대 양반마을. 하회탈춤, 부용대 조망.', category: '여행', link: '' }
+            ],
+            '역사탐방': [
+                { title: '수원화성', content: '유네스코 세계유산. 정조대왕 축조. 화성행궁, 장안문, 화서문 등.', category: '여행', link: '' },
+                { title: '서울 종묘', content: '유네스코 세계유산. 조선왕조 역대 왕·왕비 신위 봉안. 종묘제례악.', category: '여행', link: '' },
+                { title: '공주·부여 백제유적', content: '유네스코 세계유산. 공산성, 무령왕릉, 부소산성, 정림사지 등.', category: '여행', link: '' }
+            ],
+            '촬영지': [
+                { title: '정선 레일바이크 (미스터션샤인)', content: '드라마 촬영지. 폐 철로 위 레일바이크. 아우라지 경유.', category: '여행', link: '' },
+                { title: '순천 드라마세트장', content: '1950~80년대 거리 재현. 다수 드라마 촬영. 레트로 포토존.', category: '여행', link: '' },
+                { title: '남이섬 (겨울연가)', content: '드라마 촬영지. 메타세쿼이아길, 은행나무길 등 포토 명소.', category: '여행', link: '' }
+            ],
+            '사찰': [
+                { title: '해인사 (경남 합천)', content: '팔만대장경 봉안. 유네스코 세계유산. 가야산 국립공원 내.', category: '여행', link: '' },
+                { title: '불국사 (경북 경주)', content: '유네스코 세계유산. 석가탑, 다보탑, 청운교·백운교 등.', category: '여행', link: '' },
+                { title: '송광사 (전남 순천)', content: '승보사찰. 국보 목조건축물 다수. 조계산 등반과 연계.', category: '여행', link: '' }
+            ],
+            '박물관': [
+                { title: '국립중앙박물관 (서울)', content: '한국 대표 박물관. 상설전시 6관. 야외 정원도 볼거리. 무료 입장.', category: '여행', link: 'https://www.museum.go.kr' },
+                { title: '국립민속박물관 (서울)', content: '경복궁 내 위치. 전통문화, 생활사 전시. 야외 전시장도 운영.', category: '여행', link: '' },
+                { title: '전쟁기념관 (서울)', content: '용산 위치. 6.25전쟁 역사, 야외 전시 장비. 무료 입장.', category: '여행', link: 'https://www.warmemo.or.kr' }
+            ],
+            '오일장': [
+                { title: '정선 5일장', content: '매월 2·7일. 곤드레나물, 산나물, 황기 등 특산물. 아리랑시장.', category: '여행', link: '' },
+                { title: '모란민속장', content: '매월 4·9일. 수도권 최대 재래시장. 성남 모란역 인근.', category: '여행', link: '' },
+                { title: '강경젓갈시장', content: '매월 4·9일. 젓갈 특화시장. 100년 전통 젓갈골목.', category: '여행', link: '' }
+            ],
+            '축제': [
+                { title: '보령머드축제 (7월)', content: '대천해수욕장 머드 체험. 머드팩, 머드마사지, 퍼레이드 등.', category: '여행', link: '' },
+                { title: '함평나비축제 (4~5월)', content: '나비 생태체험, 꽃밭 조성, 체험 프로그램. 가족 나들이 적합.', category: '여행', link: '' },
+                { title: '안동탈춤축제 (9~10월)', content: '하회별신굿탈놀이 등 전통탈춤 공연. 탈 만들기 체험.', category: '여행', link: '' }
+            ],
+            '맛집': [
+                { title: '전주 한옥마을 음식', content: '비빔밥, 콩나물국밥, 막걸리, 초코파이, 모주 등 먹거리 풍부.', category: '여행', link: '' },
+                { title: '강릉 커피거리', content: '안목해변 카페거리. 바다 조망 로스팅 카페 밀집.', category: '여행', link: '' },
+                { title: '속초 중앙시장', content: '닭강정, 순대, 오징어순대, 아바이순대, 회센터 등 먹거리.', category: '여행', link: '' }
+            ],
+            '카페': [
+                { title: '강릉 테라로사', content: '커피공장 콘셉트 대형 카페. 직접 로스팅. 복합문화공간.', category: '여행', link: '' },
+                { title: '제주 오설록', content: '녹차밭 조망 카페. 녹차 아이스크림, 녹차 롤케이크 인기.', category: '여행', link: '' },
+                { title: '부산 오션뷰 카페', content: '해운대, 광안리, 다대포 등 바다 조망 카페 다수.', category: '여행', link: '' }
+            ],
+            '낚시포인트': [
+                { title: '홍원항 방파제 (충남 서천)', content: '서해 대표 방파제 낚시터. 우럭, 노래미, 숭어 등.', category: '여행', link: '' },
+                { title: '주문진항 방파제 (강원)', content: '동해안 대표. 가자미, 노래미, 고등어 등. 진입 수월.', category: '여행', link: '' },
+                { title: '부산 오륙도 방파제', content: '도심 근접 낚시터. 방파제 산책로 겸비. 볼락, 고등어.', category: '여행', link: '' }
+            ],
+            '펜션': [
+                { title: '강릉 오션뷰 펜션', content: '사근진, 주문진 일대. 바다 조망 독채 펜션 다수. 바비큐 시설.', category: '여행', link: '' },
+                { title: '거제도 펜션', content: '학동흑진주해변, 명사해수욕장 인근. 바다 조망, 수영장 펜션.', category: '여행', link: '' },
+                { title: '제주 애월 펜션', content: '곽지해수욕장, 협재해수욕장 인근. 독채 풀빌라, 오션뷰 숙소.', category: '여행', link: '' }
+            ],
+
+            // 전원생활
+            '지원정책': [
+                { title: '귀농귀촌 종합센터', content: '농림축산식품부 운영. 귀농귀촌 상담, 교육, 정착지원 원스톱 서비스.', category: '전원생활', link: 'https://www.returnfarm.com' },
+                { title: '귀농 창업 지원금', content: '영농 정착자금 최대 3억원 융자(이자 2%). 농지, 시설, 운영자금 등.', category: '전원생활', link: '' },
+                { title: '귀촌 주거비 지원', content: '빈집 수리비 최대 5000만원 융자. 임차보증금 지원 등 지자체별 상이.', category: '전원생활', link: '' }
+            ],
+            '추천지역': [
+                { title: '귀촌 인기 지역', content: '제주, 양평, 홍천, 정선, 순천, 완주 등 자연환경 좋고 접근성 양호한 지역 인기.', category: '전원생활', link: '' },
+                { title: '살기 좋은 농촌', content: '의료시설 접근성, 생활 인프라, 기후, 토지 가격 등 종합 고려 필요.', category: '전원생활', link: '' },
+                { title: '귀촌체험마을', content: '전국 귀농귀촌 체험마을에서 1~2주 체험 후 결정 권장. 농촌진흥청 안내.', category: '전원생활', link: '' }
+            ],
+            '전원주택': [
+                { title: '전원주택 건축 비용', content: '평당 500~800만원 수준. 설계, 인허가, 토목, 조경 별도. 총 3~5억 예상.', category: '전원생활', link: '' },
+                { title: '전원주택 부지 선정', content: '도로 접근성, 전기·수도 인입, 일조권, 배수, 혐오시설 확인 필수.', category: '전원생활', link: '' },
+                { title: '농막 설치 규정', content: '농지에 20㎡ 이하 농막 설치 가능. 전기·수도 제한. 신고제로 간편.', category: '전원생활', link: '' }
+            ],
+            '농사시작': [
+                { title: '초보 농사 작물', content: '고추, 감자, 고구마, 배추 등 비교적 재배 쉬운 작물로 시작 권장.', category: '전원생활', link: '' },
+                { title: '농업기술센터 활용', content: '각 지역 농업기술센터 무료 교육, 현장 지도, 종자·비료 지원 등.', category: '전원생활', link: '' },
+                { title: '6차산업 아이디어', content: '농산물+가공+체험+판매 결합. 체험농장, 팜스테이, 로컬푸드 등.', category: '전원생활', link: '' }
+            ],
+            '준비사항': [
+                { title: '귀농귀촌 체크리스트', content: '재정계획, 가족동의, 지역답사, 교육이수, 주거확보, 건강관리 등.', category: '전원생활', link: '' },
+                { title: '귀촌 전 체험 필수', content: '주말농장, 귀농귀촌체험, 농촌체험휴양마을 등 미리 경험해보기.', category: '전원생활', link: '' },
+                { title: '지역사회 적응', content: '마을 행사 참여, 이웃과 소통, 농협·작목반 가입 등 관계 형성 중요.', category: '전원생활', link: '' }
+            ],
+            '성공사례': [
+                { title: '도시민 귀농 성공기', content: '50대 부부 귀농, 블루베리 농장 운영. 체험농장으로 발전해 연매출 1억.', category: '전원생활', link: '' },
+                { title: '청년 스마트팜 사례', content: '30대 청년 귀농, 스마트팜 딸기 재배. 온라인 판매로 초기 정착 성공.', category: '전원생활', link: '' },
+                { title: '은퇴 후 귀촌 생활', content: '60대 은퇴자 귀촌, 텃밭가꾸기와 지역봉사로 제2의 인생.', category: '전원생활', link: '' }
+            ],
+            '빈집정보': [
+                { title: '농촌빈집정보시스템', content: '한국농어촌공사 운영. 전국 빈집 매물 검색, 중개 서비스.', category: '전원생활', link: 'https://www.welchon.com' },
+                { title: '지자체 빈집정보', content: '각 지자체 귀농귀촌 담당부서에서 빈집정보 제공. 직접 문의 권장.', category: '전원생활', link: '' },
+                { title: '빈집 구매 시 주의점', content: '등기 확인, 건물 상태, 수리비용, 인허가 사항 등 꼼꼼히 확인.', category: '전원생활', link: '' }
+            ],
+            '교육정보': [
+                { title: '귀농귀촌 아카데미', content: '농림수산식품교육문화정보원 운영. 온라인·집합교육. 수료 시 혜택.', category: '전원생활', link: 'https://www.returnfarm.com' },
+                { title: '농업마이스터대학', content: '지역별 품목별 전문교육 2년과정. 실습 중심 심화교육.', category: '전원생활', link: '' },
+                { title: '귀농귀촌박람회', content: '매년 개최. 정책·정보·상담·체험 원스톱. 관심 있으면 방문 권장.', category: '전원생활', link: '' }
+            ]
+        };
+
+        // ============================================
         // 전국 시도 및 구군 데이터
+        // ============================================
         const regionData = {
             '서울특별시': ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구', '서대문구', '서초구', '성동구', '성북구', '송파구', '양천구', '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구'],
             '부산광역시': ['강서구', '금정구', '기장군', '남구', '동구', '동래구', '부산진구', '북구', '사상구', '사하구', '서구', '수영구', '연제구', '영도구', '중구', '해운대구'],
@@ -882,6 +1496,15 @@
             '제주특별자치도': ['서귀포시', '제주시']
         };
 
+        // ============================================
+        // 검색 캐시 (세션 동안 유지)
+        // ============================================
+        const searchCache = {};
+
+        // ============================================
+        // 유틸리티 함수
+        // ============================================
+        
         // 시도 드롭다운 초기화
         function initRegionSelectors() {
             const sidoSelects = document.querySelectorAll('[id$="Sido"]');
@@ -922,25 +1545,6 @@
             document.getElementById(tabId).classList.add('active');
         }
 
-        // 네비게이션 버튼 클릭 이벤트
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                switchTab(tabId);
-            });
-        });
-
-        // 여행 서브탭 클릭 이벤트
-        document.querySelectorAll('.travel-sub-tab').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.travel-sub-tab').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const query = btn.getAttribute('data-query');
-                searchCategory(query, 'travelResults');
-            });
-        });
-
         // 지역 정보 가져오기
         function getRegionContext(tabName) {
             const sidoSelect = document.getElementById(tabName + 'Sido');
@@ -956,7 +1560,223 @@
             return region;
         }
 
-        // 검색 수행
+        // ============================================
+        // 지역별 복지포털 링크
+        // ============================================
+        const regionalLinks = {
+            '서울특별시': 'https://wis.seoul.go.kr',
+            '부산광역시': 'https://www.busan.go.kr/welfare',
+            '대구광역시': 'https://www.daegu.go.kr/dgwelfare',
+            '인천광역시': 'https://www.incheon.go.kr/welfare',
+            '광주광역시': 'https://www.gwangju.go.kr/welfare',
+            '대전광역시': 'https://www.daejeon.go.kr/wel',
+            '울산광역시': 'https://www.ulsan.go.kr/u/welfare',
+            '세종특별자치시': 'https://www.sejong.go.kr/welfare',
+            '경기도': 'https://www.gg.go.kr/contents/contents.do?ciIdx=679',
+            '강원특별자치도': 'https://www.provin.gangwon.kr/gw/welfare',
+            '충청북도': 'https://www.chungbuk.go.kr/welfare',
+            '충청남도': 'https://www.chungnam.go.kr/welfare',
+            '전북특별자치도': 'https://www.jeonbuk.go.kr/index.jeonbuk?menuCd=DOM_000000501000000000',
+            '전라남도': 'https://www.jeonnam.go.kr/welfare',
+            '경상북도': 'https://www.gb.go.kr/Main/open_contents/section/wel',
+            '경상남도': 'https://www.gyeongnam.go.kr/index.gyeong?menuCd=DOM_000000105003000000',
+            '제주특별자치도': 'https://www.jeju.go.kr/welfare'
+        };
+
+        // ============================================
+        // 검색 결과 표시 (공통)
+        // ============================================
+        function displayResults(results, resultsId, query, region = '') {
+            const resultsContainer = document.getElementById(resultsId);
+            
+            if (results && results.length > 0) {
+                let html = `
+                    <div class="result-card">
+                        <div class="result-query">
+                            <span class="query-label">🔍 검색어:</span> ${query}
+                            ${region ? `<span style="margin-left:10px;color:#2d5a3d;font-weight:600;">📍 ${region}</span>` : ''}
+                        </div>
+                        <div class="result-content">
+                `;
+                
+                results.forEach(item => {
+                    html += `
+                        <div class="result-item" ${item.link ? `onclick="window.open('${item.link}', '_blank')"` : ''}>
+                            <h4>${item.title}</h4>
+                            <p>${item.content}</p>
+                            <span class="category-tag">${item.category}</span>
+                            ${item.link ? `<a href="${item.link}" target="_blank" class="link-btn" onclick="event.stopPropagation()">자세히 보기 →</a>` : ''}
+                        </div>
+                    `;
+                });
+                
+                // 지역이 선택된 경우 추가 링크 제공
+                if (region) {
+                    const sido = region.split(' ')[0];
+                    const naverLink = `https://search.naver.com/search.naver?query=${encodeURIComponent(query + ' ' + region)}`;
+                    const kakaoMapLink = `https://map.kakao.com/?q=${encodeURIComponent(query + ' ' + region)}`;
+                    
+                    html += `
+                        <div class="result-item" style="background:#e8f5e9;border-left-color:#4caf50;">
+                            <h4>📍 ${region} 지역 맞춤 정보</h4>
+                            <p>선택하신 지역의 더 자세한 정보를 확인하세요.</p>
+                            <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;">
+                                <a href="${naverLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🔍 네이버에서 검색</a>
+                                <a href="${kakaoMapLink}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🗺️ 카카오맵에서 찾기</a>
+                                ${regionalLinks[sido] ? `<a href="${regionalLinks[sido]}" target="_blank" class="region-link-btn" onclick="event.stopPropagation()">🏛️ ${sido} 복지포털</a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                html += '</div></div>';
+                resultsContainer.innerHTML = html;
+            } else {
+                resultsContainer.innerHTML = `
+                    <div class="result-card">
+                        <div class="result-query">
+                            <span class="query-label">🔍 검색어:</span> ${query}
+                        </div>
+                        <div class="result-content">
+                            <p>검색 결과가 없습니다. 다른 검색어로 시도해보세요.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================
+        // 카테고리 버튼 클릭 - 지역 + 테마 정확 필터링
+        // ============================================
+        function showCategoryData(key, resultsId) {
+            const resultsContainer = document.getElementById(resultsId);
+            const tabName = resultsId.replace('Results', '');
+            const region = getRegionContext(tabName);
+            
+            // 해당 카테고리 버튼 활성화
+            const parentTab = resultsContainer.closest('.tab-content');
+            parentTab.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            parentTab.querySelectorAll('.travel-sub-tab').forEach(btn => btn.classList.remove('active'));
+            
+            const activeBtn = parentTab.querySelector(`[data-key="${key}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            const query = region ? `${key} - ${region}` : key;
+            let results = [];
+            
+            // 1. 지역이 선택된 경우: 구/군 단위까지 정확히 필터링
+            if (region) {
+                const regionParts = region.split(' ');
+                const sidoName = regionParts[0];
+                const gugunName = regionParts[1] || '';
+                
+                // 구/군까지 선택된 경우: 상세 데이터에서 검색
+                if (gugunName) {
+                    const detailKey = `${sidoName}-${gugunName}`;
+                    
+                    if (detailedRegionalData[detailKey]) {
+                        // 카테고리 키워드로 필터링
+                        const keywords = categoryKeywords[key] || [key.toLowerCase()];
+                        
+                        results = detailedRegionalData[detailKey].filter(item => {
+                            // 아이템의 키워드와 카테고리 키워드 매칭
+                            if (item.keywords) {
+                                return item.keywords.some(kw => 
+                                    keywords.some(ck => kw.toLowerCase().includes(ck.toLowerCase()) || ck.toLowerCase().includes(kw.toLowerCase()))
+                                );
+                            }
+                            // 키워드가 없으면 카테고리명으로 매칭
+                            return item.category.toLowerCase().includes(key.toLowerCase()) ||
+                                   keywords.some(kw => item.title.toLowerCase().includes(kw) || item.content.toLowerCase().includes(kw));
+                        });
+                        
+                        // 해당 테마의 결과가 없으면 해당 지역의 모든 데이터 + 안내
+                        if (results.length === 0) {
+                            results = [{
+                                title: `📍 ${region} - ${key} 검색`,
+                                content: `${gugunName} 지역의 "${key}" 관련 등록된 정보가 없습니다. 아래 링크에서 직접 검색해보세요.`,
+                                category: '안내',
+                                link: `https://search.naver.com/search.naver?query=${encodeURIComponent(region + ' ' + key)}`
+                            }];
+                            // 해당 지역의 다른 정보도 함께 표시
+                            results = results.concat(detailedRegionalData[detailKey].slice(0, 3));
+                        }
+                    } else {
+                        // 상세 데이터에 해당 구/군이 없는 경우
+                        results = [{
+                            title: `📍 ${region} - ${key} 검색`,
+                            content: `${region} 지역의 상세 정보가 준비 중입니다. 아래 링크에서 검색해보세요.`,
+                            category: '안내',
+                            link: `https://search.naver.com/search.naver?query=${encodeURIComponent(region + ' ' + key)}`
+                        }, {
+                            title: `🗺️ 카카오맵에서 찾기`,
+                            content: `${region} 주변의 ${key} 관련 장소를 지도에서 확인하세요.`,
+                            category: '안내',
+                            link: `https://map.kakao.com/?q=${encodeURIComponent(region + ' ' + key)}`
+                        }];
+                    }
+                } else {
+                    // 시/도만 선택된 경우: 해당 시/도의 모든 구/군 데이터에서 검색
+                    const keywords = categoryKeywords[key] || [key.toLowerCase()];
+                    
+                    Object.keys(detailedRegionalData).forEach(detailKey => {
+                        if (detailKey.startsWith(sidoName + '-')) {
+                            const filtered = detailedRegionalData[detailKey].filter(item => {
+                                if (item.keywords) {
+                                    return item.keywords.some(kw => 
+                                        keywords.some(ck => kw.toLowerCase().includes(ck.toLowerCase()) || ck.toLowerCase().includes(kw.toLowerCase()))
+                                    );
+                                }
+                                return keywords.some(kw => item.title.toLowerCase().includes(kw) || item.content.toLowerCase().includes(kw));
+                            });
+                            results = results.concat(filtered);
+                        }
+                    });
+                    
+                    // 시/도 레벨 데이터도 추가
+                    if (regionalData[sidoName]) {
+                        const sidoFiltered = regionalData[sidoName].filter(item => {
+                            return keywords.some(kw => 
+                                item.title.toLowerCase().includes(kw) || 
+                                item.content.toLowerCase().includes(kw) ||
+                                item.category.toLowerCase().includes(kw)
+                            );
+                        });
+                        results = results.concat(sidoFiltered);
+                    }
+                }
+            }
+            
+            // 2. 지역 미선택 시: 사전 정의 데이터만 표시
+            if (!region) {
+                const baseData = preloadedData[key];
+                if (baseData) {
+                    results = baseData;
+                }
+            }
+            
+            // 3. 결과가 없으면 외부 검색 링크 제공
+            if (results.length === 0) {
+                const searchQuery = region ? `${region} ${key}` : key;
+                results = [{
+                    title: `🔍 "${searchQuery}" 검색`,
+                    content: '등록된 정보가 없습니다. 아래 링크에서 검색해보세요.',
+                    category: '안내',
+                    link: `https://search.naver.com/search.naver?query=${encodeURIComponent(searchQuery)}`
+                }, {
+                    title: `🗺️ 카카오맵에서 찾기`,
+                    content: '지도에서 해당 장소를 검색해보세요.',
+                    category: '안내',
+                    link: `https://map.kakao.com/?q=${encodeURIComponent(searchQuery)}`
+                }];
+            }
+            
+            displayResults(results, resultsId, query);
+        }
+
+        // ============================================
+        // 외부 검색 (입력 검색용) + 지역 정확 필터링
+        // ============================================
         function performSearch(inputId, resultsId) {
             const input = document.getElementById(inputId);
             const query = input.value.trim();
@@ -968,97 +1788,290 @@
             
             const tabName = inputId.replace('SearchInput', '');
             const region = getRegionContext(tabName);
+            const displayQuery = region ? `${query} - ${region}` : query;
             
-            executeSearch(query, resultsId, tabName, region);
+            let results = [];
+            const queryLower = query.toLowerCase();
+            
+            // 1. 지역이 선택된 경우: 구/군 단위까지 정확히 필터링
+            if (region) {
+                const regionParts = region.split(' ');
+                const sidoName = regionParts[0];
+                const gugunName = regionParts[1] || '';
+                
+                // 구/군까지 선택된 경우
+                if (gugunName) {
+                    const detailKey = `${sidoName}-${gugunName}`;
+                    
+                    if (detailedRegionalData[detailKey]) {
+                        results = detailedRegionalData[detailKey].filter(item => {
+                            return item.title.toLowerCase().includes(queryLower) ||
+                                   item.content.toLowerCase().includes(queryLower) ||
+                                   item.category.toLowerCase().includes(queryLower) ||
+                                   (item.keywords && item.keywords.some(kw => kw.toLowerCase().includes(queryLower)));
+                        });
+                    }
+                } else {
+                    // 시/도만 선택된 경우
+                    Object.keys(detailedRegionalData).forEach(detailKey => {
+                        if (detailKey.startsWith(sidoName + '-')) {
+                            const filtered = detailedRegionalData[detailKey].filter(item => {
+                                return item.title.toLowerCase().includes(queryLower) ||
+                                       item.content.toLowerCase().includes(queryLower) ||
+                                       (item.keywords && item.keywords.some(kw => kw.toLowerCase().includes(queryLower)));
+                            });
+                            results = results.concat(filtered);
+                        }
+                    });
+                    
+                    // 시/도 레벨 데이터도 검색
+                    if (regionalData[sidoName]) {
+                        const sidoResults = regionalData[sidoName].filter(item => {
+                            return item.title.toLowerCase().includes(queryLower) ||
+                                   item.content.toLowerCase().includes(queryLower);
+                        });
+                        results = results.concat(sidoResults);
+                    }
+                }
+            }
+            
+            // 2. 사전 정의 데이터에서 검색 (지역 미선택 시 또는 추가 결과)
+            if (!region || results.length < 3) {
+                // 키워드 매칭
+                const matchedKey = Object.keys(preloadedData).find(key => 
+                    queryLower.includes(key.toLowerCase()) || key.toLowerCase().includes(queryLower)
+                );
+                
+                if (matchedKey && !region) {
+                    results = results.concat(preloadedData[matchedKey]);
+                }
+                
+                // 모든 사전 데이터에서 키워드 검색
+                Object.values(preloadedData).forEach(dataArray => {
+                    dataArray.forEach(item => {
+                        if ((item.title.toLowerCase().includes(queryLower) || 
+                             item.content.toLowerCase().includes(queryLower)) &&
+                            !results.some(r => r.title === item.title)) {
+                            if (!region) {
+                                results.push(item);
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // 3. 결과가 있으면 표시, 없으면 외부 검색 링크 제공
+            if (results.length > 0) {
+                displayResults(results, resultsId, displayQuery);
+            } else {
+                const searchQuery = region ? `${region} ${query}` : query;
+                const fallbackResults = [{
+                    title: `🔍 "${searchQuery}" 검색`,
+                    content: '등록된 정보가 없습니다. 아래 링크에서 검색해보세요.',
+                    category: '안내',
+                    link: `https://search.naver.com/search.naver?query=${encodeURIComponent(searchQuery)}`
+                }, {
+                    title: `🗺️ 카카오맵에서 찾기`,
+                    content: '지도에서 해당 장소를 검색해보세요.',
+                    category: '안내',
+                    link: `https://map.kakao.com/?q=${encodeURIComponent(searchQuery)}`
+                }];
+                displayResults(fallbackResults, resultsId, displayQuery);
+            }
         }
 
-        // 카테고리 검색
-        function searchCategory(query, resultsId) {
-            const tabName = resultsId.replace('Results', '');
-            const region = getRegionContext(tabName);
-            
-            executeSearch(query, resultsId, tabName, region);
-        }
-
-        // 실제 검색 실행 (Google Apps Script 서버 호출)
-        function executeSearch(query, resultsId, tabName, region) {
+        // ============================================
+        // 외부 검색 (DuckDuckGo API 활용)
+        // ============================================
+        async function performExternalSearch(query, resultsId, tabName, region) {
             const resultsContainer = document.getElementById(resultsId);
             const loadingContainer = document.getElementById(tabName + 'Loading');
+            
+            const fullQuery = region ? `${query} ${region}` : query;
+            
+            // 캐시 확인
+            if (searchCache[fullQuery]) {
+                displayResults(searchCache[fullQuery], resultsId, query, region);
+                return;
+            }
             
             // 로딩 표시
             if (loadingContainer) loadingContainer.classList.add('show');
             resultsContainer.innerHTML = '';
             
-            const fullQuery = region ? `${query} ${region}` : query;
-            
-            // Google Apps Script 서버 함수 호출
-            google.script.run
-                .withSuccessHandler(function(response) {
-                    if (loadingContainer) loadingContainer.classList.remove('show');
-                    
-                    if (response.success && response.results && response.results.length > 0) {
-                        let html = `
-                            <div class="result-card">
-                                <div class="result-query">
-                                    <span class="query-label">🔍 검색어:</span> ${fullQuery}
-                                </div>
-                                <div class="result-content">
-                        `;
-                        
-                        response.results.forEach(item => {
-                            html += `
-                                <div class="result-item">
-                                    <h4>${item.title}</h4>
-                                    <p>${item.content}</p>
-                                    <span class="category-tag">${item.category}</span>
-                                    ${item.link ? `<a href="${item.link}" target="_blank" style="margin-left:10px;color:#2d5a3d;">자세히 보기 →</a>` : ''}
-                                </div>
-                            `;
-                        });
-                        
-                        html += '</div></div>';
-                        resultsContainer.innerHTML = html;
-                    } else {
-                        resultsContainer.innerHTML = `
-                            <div class="result-card">
-                                <div class="result-query">
-                                    <span class="query-label">🔍 검색어:</span> ${fullQuery}
-                                </div>
-                                <div class="result-content">
-                                    <p>검색 결과가 없습니다. 다른 검색어로 시도해보세요.</p>
-                                </div>
-                            </div>
-                        `;
-                    }
-                })
-                .withFailureHandler(function(error) {
-                    if (loadingContainer) loadingContainer.classList.remove('show');
-                    resultsContainer.innerHTML = `
-                        <div class="result-card">
-                            <div class="result-content" style="color: #e53935;">
-                                검색 중 오류가 발생했습니다: ${error.message || error}
-                            </div>
-                        </div>
-                    `;
-                })
-                .performWebSearch(query, region);
+            try {
+                // DuckDuckGo Instant Answer API (CORS 지원)
+                const response = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(fullQuery)}&format=json&no_redirect=1`);
+                const data = await response.json();
+                
+                let results = [];
+                
+                // Abstract 결과
+                if (data.Abstract) {
+                    results.push({
+                        title: data.Heading || fullQuery,
+                        content: data.Abstract,
+                        category: '검색결과',
+                        link: data.AbstractURL || ''
+                    });
+                }
+                
+                // Related Topics
+                if (data.RelatedTopics && data.RelatedTopics.length > 0) {
+                    data.RelatedTopics.slice(0, 5).forEach(topic => {
+                        if (topic.Text) {
+                            results.push({
+                                title: topic.Text.split(' - ')[0] || '관련 정보',
+                                content: topic.Text,
+                                category: '관련정보',
+                                link: topic.FirstURL || ''
+                            });
+                        }
+                    });
+                }
+                
+                // 결과 없으면 기본 안내
+                if (results.length === 0) {
+                    results.push({
+                        title: `"${fullQuery}" 검색 안내`,
+                        content: '상세 정보는 아래 링크에서 확인하세요. 네이버, 다음 등 포털사이트에서 더 많은 정보를 찾을 수 있습니다.',
+                        category: '안내',
+                        link: `https://search.naver.com/search.naver?query=${encodeURIComponent(fullQuery)}`
+                    });
+                }
+                
+                // 캐시 저장
+                searchCache[fullQuery] = results;
+                
+                if (loadingContainer) loadingContainer.classList.remove('show');
+                displayResults(results, resultsId, query, region);
+                
+            } catch (error) {
+                if (loadingContainer) loadingContainer.classList.remove('show');
+                
+                // 오류 시 포털 링크 제공
+                const fallbackResults = [{
+                    title: `"${fullQuery}" 검색`,
+                    content: '외부 검색 서비스 연결에 실패했습니다. 아래 링크에서 직접 검색해주세요.',
+                    category: '안내',
+                    link: `https://search.naver.com/search.naver?query=${encodeURIComponent(fullQuery)}`
+                }];
+                displayResults(fallbackResults, resultsId, query, region);
+            }
         }
 
-        // 엔터키 검색
-        document.querySelectorAll('.search-input').forEach(input => {
-            input.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    const inputId = input.id;
-                    const tabName = inputId.replace('SearchInput', '');
-                    const resultsId = tabName + 'Results';
-                    performSearch(inputId, resultsId);
-                }
-            });
-        });
-
-        // 초기화
+        // ============================================
+        // 이벤트 리스너 등록
+        // ============================================
         document.addEventListener('DOMContentLoaded', () => {
+            // 시도 선택 초기화
             initRegionSelectors();
+            
+            // 네비게이션 버튼
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchTab(btn.getAttribute('data-tab'));
+                });
+            });
+            
+            // 카테고리 버튼 (복지, 건강, 취미, 전원생활)
+            document.querySelectorAll('.category-btn[data-key]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.getAttribute('data-key');
+                    const tabContent = btn.closest('.tab-content');
+                    const resultsId = tabContent.id + 'Results';
+                    showCategoryData(key, resultsId);
+                });
+            });
+            
+            // 여행 서브탭
+            document.querySelectorAll('.travel-sub-tab[data-key]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.getAttribute('data-key');
+                    showCategoryData(key, 'travelResults');
+                });
+            });
+            
+            // 검색 입력 엔터키
+            document.querySelectorAll('.search-input').forEach(input => {
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const inputId = input.id;
+                        const tabName = inputId.replace('SearchInput', '');
+                        performSearch(inputId, tabName + 'Results');
+                    }
+                });
+            });
+            
+            // 시도 선택 시 해당 지역 정보 표시
+            document.querySelectorAll('[id$="Sido"]').forEach(select => {
+                select.addEventListener('change', () => {
+                    const sidoId = select.id;
+                    const tabName = sidoId.replace('Sido', '');
+                    const resultsId = tabName + 'Results';
+                    const sidoName = select.value;
+                    
+                    if (sidoName) {
+                        // 해당 시/도의 모든 구/군 데이터 수집
+                        let allResults = [];
+                        
+                        Object.keys(detailedRegionalData).forEach(detailKey => {
+                            if (detailKey.startsWith(sidoName + '-')) {
+                                allResults = allResults.concat(detailedRegionalData[detailKey]);
+                            }
+                        });
+                        
+                        // 시/도 레벨 데이터도 추가
+                        if (regionalData[sidoName]) {
+                            allResults = allResults.concat(regionalData[sidoName]);
+                        }
+                        
+                        if (allResults.length > 0) {
+                            displayResults(allResults, resultsId, `${sidoName} 추천 정보`);
+                        } else {
+                            displayResults([{
+                                title: `📍 ${sidoName} 정보`,
+                                content: '해당 지역의 상세 정보가 준비 중입니다. 구/군을 선택하거나 검색어를 입력해보세요.',
+                                category: '안내',
+                                link: `https://search.naver.com/search.naver?query=${encodeURIComponent(sidoName + ' 여행')}`
+                            }], resultsId, `${sidoName} 정보`);
+                        }
+                    }
+                });
+            });
+            
+            // 구/군 선택 시 해당 지역 정보만 표시
+            document.querySelectorAll('[id$="Gugun"]').forEach(select => {
+                select.addEventListener('change', () => {
+                    const gugunId = select.id;
+                    const tabName = gugunId.replace('Gugun', '');
+                    const resultsId = tabName + 'Results';
+                    const sidoSelect = document.getElementById(tabName + 'Sido');
+                    const sidoName = sidoSelect ? sidoSelect.value : '';
+                    const gugunName = select.value;
+                    
+                    if (sidoName && gugunName) {
+                        const detailKey = `${sidoName}-${gugunName}`;
+                        const region = `${sidoName} ${gugunName}`;
+                        
+                        if (detailedRegionalData[detailKey]) {
+                            displayResults(detailedRegionalData[detailKey], resultsId, `${region} 추천 정보`);
+                        } else {
+                            displayResults([{
+                                title: `📍 ${region} 정보`,
+                                content: '해당 지역의 상세 정보가 준비 중입니다. 카테고리 버튼을 클릭하거나 검색어를 입력해보세요.',
+                                category: '안내',
+                                link: `https://search.naver.com/search.naver?query=${encodeURIComponent(region + ' 여행')}`
+                            }, {
+                                title: `🗺️ 카카오맵에서 찾기`,
+                                content: `${region} 주변 장소를 지도에서 확인하세요.`,
+                                category: '안내',
+                                link: `https://map.kakao.com/?q=${encodeURIComponent(region)}`
+                            }], resultsId, `${region} 정보`);
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
