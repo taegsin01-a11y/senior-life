@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <base target="_top">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>슬기로운 시니어 생활</title>
@@ -376,6 +377,7 @@
             padding: 28px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             border-left: 5px solid #2d5a3d;
+            margin-bottom: 16px;
         }
         
         .result-query {
@@ -396,21 +398,35 @@
             font-size: 17px;
             line-height: 1.8;
             color: #333;
-            white-space: pre-wrap;
         }
         
-        .result-content h1, .result-content h2, .result-content h3 {
+        .result-item {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+            border-left: 4px solid #3d7a4d;
+        }
+        
+        .result-item h4 {
             color: #2d5a3d;
-            margin: 20px 0 12px 0;
-        }
-        
-        .result-content ul, .result-content ol {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
-        
-        .result-content li {
             margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .result-item p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .result-item .category-tag {
+            display: inline-block;
+            background: #2d5a3d;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 8px;
         }
         
         /* 로딩 */
@@ -610,13 +626,13 @@
             </div>
             
             <div class="category-buttons">
-                <button class="category-btn" onclick="searchCategory('노인 기초연금 신청방법 자격조건', 'welfareResults')">💰 기초연금</button>
+                <button class="category-btn" onclick="searchCategory('기초연금 신청방법 자격조건', 'welfareResults')">💰 기초연금</button>
                 <button class="category-btn" onclick="searchCategory('노인 바우처 종류 신청방법', 'welfareResults')">🎫 바우처</button>
                 <button class="category-btn" onclick="searchCategory('노인 돌봄 서비스 신청', 'welfareResults')">🤝 돌봄서비스</button>
                 <button class="category-btn" onclick="searchCategory('노인 일자리 사업 신청', 'welfareResults')">💼 일자리</button>
                 <button class="category-btn" onclick="searchCategory('노인 의료비 지원 혜택', 'welfareResults')">🏥 의료지원</button>
                 <button class="category-btn" onclick="searchCategory('노인 주거 지원 임대주택', 'welfareResults')">🏠 주거지원</button>
-                <button class="category-btn" onclick="searchCategory('경로우대 할인 혜택 총정리', 'welfareResults')">🎁 경로우대</button>
+                <button class="category-btn" onclick="searchCategory('경로우대 할인 혜택', 'welfareResults')">🎁 경로우대</button>
                 <button class="category-btn" onclick="searchCategory('노인 교육 문화 프로그램', 'welfareResults')">📚 교육문화</button>
             </div>
             
@@ -631,7 +647,7 @@
             
             <div class="search-in-tab">
                 <input type="text" id="welfareSearchInput" class="search-input" placeholder="복지 관련 검색어를 입력하세요...">
-                <button class="search-button" onclick="performSearch('welfareSearchInput', 'welfareResults', '노인 복지')">검색</button>
+                <button class="search-button" onclick="performSearch('welfareSearchInput', 'welfareResults')">검색</button>
             </div>
             
             <div class="loading-container" id="welfareLoading">
@@ -655,7 +671,7 @@
                 <button class="category-btn" onclick="searchCategory('치매 예방 초기증상 관리', 'healthResults')">🧠 치매예방</button>
                 <button class="category-btn" onclick="searchCategory('골다공증 예방 치료 운동', 'healthResults')">💪 골다공증</button>
                 <button class="category-btn" onclick="searchCategory('노인 우울증 증상 극복방법', 'healthResults')">😊 우울증</button>
-                <button class="category-btn" onclick="searchCategory('노인 건강보조제 추천 비타민', 'healthResults')">💊 건강보조제</button>
+                <button class="category-btn" onclick="searchCategory('건강보조제 추천 비타민', 'healthResults')">💊 건강보조제</button>
                 <button class="category-btn" onclick="searchCategory('노인 운동법 스트레칭 체조', 'healthResults')">🧘 운동법</button>
                 <button class="category-btn" onclick="searchCategory('민간요법 자연치유 건강법', 'healthResults')">🌿 민간요법</button>
                 <button class="category-btn" onclick="searchCategory('노인 영양관리 식단 추천', 'healthResults')">🥗 영양관리</button>
@@ -663,7 +679,7 @@
             
             <div class="search-in-tab">
                 <input type="text" id="healthSearchInput" class="search-input" placeholder="건강 관련 검색어를 입력하세요...">
-                <button class="search-button" onclick="performSearch('healthSearchInput', 'healthResults', '노인 건강')">검색</button>
+                <button class="search-button" onclick="performSearch('healthSearchInput', 'healthResults')">검색</button>
             </div>
             
             <div class="loading-container" id="healthLoading">
@@ -706,7 +722,7 @@
             
             <div class="search-in-tab">
                 <input type="text" id="hobbySearchInput" class="search-input" placeholder="관심있는 취미를 검색하세요...">
-                <button class="search-button" onclick="performSearch('hobbySearchInput', 'hobbyResults', '시니어 취미 동호회')">검색</button>
+                <button class="search-button" onclick="performSearch('hobbySearchInput', 'hobbyResults')">검색</button>
             </div>
             
             <div class="loading-container" id="hobbyLoading">
@@ -776,7 +792,7 @@
             
             <div class="search-in-tab">
                 <input type="text" id="travelSearchInput" class="search-input" placeholder="여행지를 검색하세요...">
-                <button class="search-button" onclick="performSearch('travelSearchInput', 'travelResults', '여행 관광')">검색</button>
+                <button class="search-button" onclick="performSearch('travelSearchInput', 'travelResults')">검색</button>
             </div>
             
             <div class="loading-container" id="travelLoading">
@@ -815,7 +831,7 @@
             
             <div class="search-in-tab">
                 <input type="text" id="ruralSearchInput" class="search-input" placeholder="전원생활 관련 검색어를 입력하세요...">
-                <button class="search-button" onclick="performSearch('ruralSearchInput', 'ruralResults', '귀촌 귀농 전원생활')">검색</button>
+                <button class="search-button" onclick="performSearch('ruralSearchInput', 'ruralResults')">검색</button>
             </div>
             
             <div class="loading-container" id="ruralLoading">
@@ -886,11 +902,9 @@
 
         // 탭 전환
         function switchTab(tabId) {
-            // 모든 탭 버튼과 컨텐츠 비활성화
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             
-            // 선택된 탭 활성화
             document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
             document.getElementById(tabId).classList.add('active');
         }
@@ -910,12 +924,27 @@
                 btn.classList.add('active');
                 
                 const query = btn.getAttribute('data-query');
-                searchCategory(query, 'travelResults', 'travelLoading', 'travelSido', 'travelGugun');
+                searchCategory(query, 'travelResults');
             });
         });
 
+        // 지역 정보 가져오기
+        function getRegionContext(tabName) {
+            const sidoSelect = document.getElementById(tabName + 'Sido');
+            const gugunSelect = document.getElementById(tabName + 'Gugun');
+            
+            let region = '';
+            if (sidoSelect && sidoSelect.value) {
+                region = sidoSelect.value;
+                if (gugunSelect && gugunSelect.value) {
+                    region += ' ' + gugunSelect.value;
+                }
+            }
+            return region;
+        }
+
         // 검색 수행
-        async function performSearch(inputId, resultsId, additionalContext = '') {
+        function performSearch(inputId, resultsId) {
             const input = document.getElementById(inputId);
             const query = input.value.trim();
             
@@ -924,125 +953,82 @@
                 return;
             }
             
-            // 탭 이름 추출 (예: homeSearchInput -> home)
             const tabName = inputId.replace('SearchInput', '');
-            const loadingId = tabName + 'Loading';
-            const sidoId = tabName + 'Sido';
-            const gugunId = tabName + 'Gugun';
+            const region = getRegionContext(tabName);
             
-            await executeSearch(query, resultsId, loadingId, sidoId, gugunId, additionalContext);
+            executeSearch(query, resultsId, tabName, region);
         }
 
         // 카테고리 검색
-        async function searchCategory(query, resultsId, loadingId = null, sidoId = null, gugunId = null) {
-            // resultsId에서 탭 이름 추출
+        function searchCategory(query, resultsId) {
             const tabName = resultsId.replace('Results', '');
-            loadingId = loadingId || tabName + 'Loading';
-            sidoId = sidoId || tabName + 'Sido';
-            gugunId = gugunId || tabName + 'Gugun';
+            const region = getRegionContext(tabName);
             
-            await executeSearch(query, resultsId, loadingId, sidoId, gugunId);
+            executeSearch(query, resultsId, tabName, region);
         }
 
-        // 실제 검색 실행
-        async function executeSearch(query, resultsId, loadingId, sidoId, gugunId, additionalContext = '') {
+        // 실제 검색 실행 (Google Apps Script 서버 호출)
+        function executeSearch(query, resultsId, tabName, region) {
             const resultsContainer = document.getElementById(resultsId);
-            const loadingContainer = document.getElementById(loadingId);
-            
-            // 지역 정보 가져오기
-            let regionContext = '';
-            const sidoSelect = document.getElementById(sidoId);
-            const gugunSelect = document.getElementById(gugunId);
-            
-            if (sidoSelect && sidoSelect.value) {
-                regionContext = sidoSelect.value;
-                if (gugunSelect && gugunSelect.value) {
-                    regionContext += ' ' + gugunSelect.value;
-                }
-            }
-            
-            const fullQuery = [query, additionalContext, regionContext].filter(Boolean).join(' ');
+            const loadingContainer = document.getElementById(tabName + 'Loading');
             
             // 로딩 표시
             if (loadingContainer) loadingContainer.classList.add('show');
             resultsContainer.innerHTML = '';
             
-            try {
-                const response = await fetch("https://api.anthropic.com/v1/messages", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        model: "claude-sonnet-4-20250514",
-                        max_tokens: 4000,
-                        messages: [
-                            { 
-                                role: "user", 
-                                content: `다음 주제에 대해 시니어(노인)를 위한 유용한 정보를 웹에서 검색하여 알려주세요. 
-
-검색어: ${fullQuery}
-
-다음 형식으로 정리해주세요:
-1. 핵심 정보 요약
-2. 상세 내용 (목록 형태로)
-3. 추천 및 팁
-4. 관련 연락처나 웹사이트 (있는 경우)
-
-시니어 분들이 이해하기 쉽게 친절하고 자세하게 설명해주세요. 마크다운 형식으로 작성해주세요.`
-                            }
-                        ],
-                        tools: [
-                            {
-                                "type": "web_search_20250305",
-                                "name": "web_search"
-                            }
-                        ]
-                    })
-                });
-                
-                const data = await response.json();
-                const textContent = data.content
-                    ?.filter(item => item.type === "text")
-                    ?.map(item => item.text)
-                    ?.join("\n") || "검색 결과를 가져오는 중 오류가 발생했습니다.";
-                
-                // 결과 표시
-                resultsContainer.innerHTML = `
-                    <div class="result-card">
-                        <div class="result-query">
-                            <span class="query-label">🔍 검색어:</span> ${fullQuery}
+            const fullQuery = region ? `${query} ${region}` : query;
+            
+            // Google Apps Script 서버 함수 호출
+            google.script.run
+                .withSuccessHandler(function(response) {
+                    if (loadingContainer) loadingContainer.classList.remove('show');
+                    
+                    if (response.success && response.results && response.results.length > 0) {
+                        let html = `
+                            <div class="result-card">
+                                <div class="result-query">
+                                    <span class="query-label">🔍 검색어:</span> ${fullQuery}
+                                </div>
+                                <div class="result-content">
+                        `;
+                        
+                        response.results.forEach(item => {
+                            html += `
+                                <div class="result-item">
+                                    <h4>${item.title}</h4>
+                                    <p>${item.content}</p>
+                                    <span class="category-tag">${item.category}</span>
+                                    ${item.link ? `<a href="${item.link}" target="_blank" style="margin-left:10px;color:#2d5a3d;">자세히 보기 →</a>` : ''}
+                                </div>
+                            `;
+                        });
+                        
+                        html += '</div></div>';
+                        resultsContainer.innerHTML = html;
+                    } else {
+                        resultsContainer.innerHTML = `
+                            <div class="result-card">
+                                <div class="result-query">
+                                    <span class="query-label">🔍 검색어:</span> ${fullQuery}
+                                </div>
+                                <div class="result-content">
+                                    <p>검색 결과가 없습니다. 다른 검색어로 시도해보세요.</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                })
+                .withFailureHandler(function(error) {
+                    if (loadingContainer) loadingContainer.classList.remove('show');
+                    resultsContainer.innerHTML = `
+                        <div class="result-card">
+                            <div class="result-content" style="color: #e53935;">
+                                검색 중 오류가 발생했습니다: ${error.message || error}
+                            </div>
                         </div>
-                        <div class="result-content">${formatMarkdown(textContent)}</div>
-                    </div>
-                `;
-            } catch (error) {
-                console.error("Search error:", error);
-                resultsContainer.innerHTML = `
-                    <div class="result-card">
-                        <div class="result-content" style="color: #e53935;">
-                            검색 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.<br>
-                            오류 내용: ${error.message}
-                        </div>
-                    </div>
-                `;
-            } finally {
-                if (loadingContainer) loadingContainer.classList.remove('show');
-            }
-        }
-
-        // 마크다운 간단 변환
-        function formatMarkdown(text) {
-            return text
-                .replace(/### (.*?)(\n|$)/g, '<h3>$1</h3>')
-                .replace(/## (.*?)(\n|$)/g, '<h2>$1</h2>')
-                .replace(/# (.*?)(\n|$)/g, '<h1>$1</h1>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                .replace(/- (.*?)(\n|$)/g, '<li>$1</li>')
-                .replace(/(\d+)\. (.*?)(\n|$)/g, '<li>$2</li>')
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/\n/g, '<br>');
+                    `;
+                })
+                .performWebSearch(query, region);
         }
 
         // 엔터키 검색
@@ -1052,18 +1038,7 @@
                     const inputId = input.id;
                     const tabName = inputId.replace('SearchInput', '');
                     const resultsId = tabName + 'Results';
-                    
-                    // 탭별 추가 컨텍스트
-                    const contextMap = {
-                        'home': '',
-                        'welfare': '노인 복지',
-                        'health': '노인 건강',
-                        'hobby': '시니어 취미 동호회',
-                        'travel': '여행 관광',
-                        'rural': '귀촌 귀농 전원생활'
-                    };
-                    
-                    performSearch(inputId, resultsId, contextMap[tabName] || '');
+                    performSearch(inputId, resultsId);
                 }
             });
         });
